@@ -18,4 +18,8 @@ export class ProductService {
       : 'https://dummyjson.com/products';
     return this.http.get<StateProductsModel>(url);
   }
+  
+  getProductsId(id:number):Observable<StateProductsModel> {
+    return this.http.get<StateProductsModel>(`https://dummyjson.com/products/${id}`)
+  }
 }

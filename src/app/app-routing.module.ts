@@ -6,7 +6,7 @@ import { ProductsFormComponent } from './products-form/products-form.component';
 import { ProductsComponent } from './products/products.component';
 
 const routes: Routes = [
-  {path:'home',component:HomePageComponent},
+  {path:'',component:HomePageComponent},
   {path:'catalog',component:ProductsFormComponent},
   {path:'product',component:ProductsComponent,children:[
     {path:'product-detail',component:ProductsDetailComponent}

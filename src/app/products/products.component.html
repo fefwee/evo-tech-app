@@ -1,6 +1,6 @@
 <div class="card_grid_box" >
     <div *ngFor="let item of products$ | async ">
-        <a [routerLink]="['/product','product-detail']">
+        <a [routerLink]="['/product','product-detail']" [queryParams]="{id:item.id}" >
         <div class="card_box">
                 <div>
                     <div class="card_img">

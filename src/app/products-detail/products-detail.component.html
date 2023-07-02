@@ -1,13 +1,13 @@
-<div class="product_detail_box">
+<div *ngIf="paramDetail" class="product_detail_box">
     <div class="image_detail">
-        <img src="#" alt="">
-        <p class="rating">rating</p>
+        <img  style="background-image: url({{paramDetail.thumbnail}});">
+        <p class="rating">{{paramDetail.rating}}</p>
     </div>
     <div class="product_description">
-        <p>Apple</p>
-        <h2>Iphone 9</h2>
-        <p>An apple mobile which is nothing like apple</p>
-        <h2>499 $</h2>
+        <p>{{paramDetail.brand}}</p>
+        <h2>{{paramDetail.title}}</h2>
+        <p>{{paramDetail.description}}</p>
+        <h2>{{paramDetail.price}}</h2>
     </div>
     <router-outlet></router-outlet>
 </div>

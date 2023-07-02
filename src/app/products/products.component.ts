@@ -8,7 +8,15 @@ import { ProductGet} from '../models/ProductGetModel';
   styleUrls: ['./products.component.css'],
 })
 
-export class ProductsComponent{
+export class ProductsComponent implements OnInit{
+  
  
   @Input() products$!: Observable<ProductGet[]>;
+
+  constructor(){}
+
+  ngOnInit(): void {
+    
+  }
+  
 }
