@@ -1,0 +1,12 @@
+.footer_container{
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 169px;
+    border-bottom: 1px solid  #E5E7EB;
+    ;
+    
+}
+p{
+    text-align: center;
+    margin:32px 0 64px 0;
+}

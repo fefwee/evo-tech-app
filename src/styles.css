@@ -1,11 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
 }
-img{
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+  font-size: 14px;
+ 
+}
+img {
   max-width: 100%;
 }
 h1 {
@@ -13,22 +20,22 @@ h1 {
   font-weight: 800;
 }
 h2 {
-  font-size: 24px;
+  font-size: 32px;
   font-weight: 700;
 }
 h3 {
-    font-size: 20px;
-    font-weight: 600;
+  font-size: 20px;
+  font-weight: 600;
 }
 h4 {
   font-size: 18px;
   font-weight: 500;
 }
 h5 {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
 }
-p{
-    font-size: 14px;
-    font-weight: 500;
+p {
+  font-size: 14px;
+  font-weight: 500;
 }

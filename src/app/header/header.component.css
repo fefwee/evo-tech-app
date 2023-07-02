@@ -1,0 +1,17 @@
+.logo{
+    display: flex;
+    align-items: center;
+    padding: 24px 0;
+   
+}
+.logo img {
+    margin-right: 15px;
+}
+.logo h4 {
+    font-weight: 800;
+}
+.header_box{
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+}

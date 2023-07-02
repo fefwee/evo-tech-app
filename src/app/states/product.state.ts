@@ -23,8 +23,8 @@ export class AppState {
   }
 
   @Action(GetProductsAction)
-  getProductStateAction(ctx: StateContext<StateProductsModel>) {
-    return this.servive.getProducts().pipe(
+  getProductStateAction(ctx: StateContext<StateProductsModel>,action:GetProductsAction) {
+    return this.servive.getProducts(action.limit).pipe(
       tap((res) => {
         const state = ctx.getState();
         ctx.setState({

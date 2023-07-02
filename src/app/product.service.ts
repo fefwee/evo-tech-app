@@ -6,11 +6,16 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-
 export class ProductService {
   constructor(private http: HttpClient) {}
 
-  getProducts(): Observable<StateProductsModel> {
-    return this.http.get<StateProductsModel>('https://dummyjson.com/products');
+  getProducts(limit?: number): Observable<StateProductsModel> {
+    console.log(limit);
+    
+    const url = limit
+    
+      ? `https://dummyjson.com/products?limit=${limit}`
+      : 'https://dummyjson.com/products';
+    return this.http.get<StateProductsModel>(url);
   }
 }

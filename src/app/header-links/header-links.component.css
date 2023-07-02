@@ -1,0 +1,7 @@
+.navigation {
+    display: flex;
+    margin-left: 74px;
+}
+.navigation a {
+    margin-right: 20px;
+}
