@@ -15,6 +15,10 @@ import { ProductsDetailComponent } from './products-detail/products-detail.compo
 import { ButtonComponent } from './button/button.component';
 import { HeaderLinksComponent } from './header-links/header-links.component';
 import { ProductsFormComponent } from './products-form/products-form.component';
+import { AuthPageComponent } from './auth-page/auth-page.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from './auth.service';
+import { UsersState } from './states/auth-user.state';
 
 
 @NgModule({
@@ -28,14 +32,17 @@ import { ProductsFormComponent } from './products-form/products-form.component';
     ButtonComponent,
     HeaderLinksComponent,
     ProductsFormComponent,
+    AuthPageComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgxsModule.forRoot([AppState]),
+    NgxsModule.forRoot([AppState,UsersState]),
+    ReactiveFormsModule,
+    FormsModule
   ],
-  providers: [ProductService],
+  providers: [ProductService,AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
