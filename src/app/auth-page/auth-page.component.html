@@ -38,7 +38,10 @@
     </div>
     <div class="submit_btn">
       <!--   <app-button [btnTitle]="'Войти'" [btnClass]="'auth'" ></app-button> -->
-      <button class="btn" >Отправить</button>
+      <a routerLink="/app-personal-area">
+        <button class="btn" (click)="submit(form.value)" >Отправить</button>
+      </a>
+      
     </div>
   </form>
 </div>

@@ -20,7 +20,7 @@ export class ProductsFormComponent implements OnInit {
     }
 
     public ngOnInit(): void {
-      this.store.dispatch( new GetProductsAction())
+      this.store.dispatch( new GetProductsAction()) 
     }
     
 }

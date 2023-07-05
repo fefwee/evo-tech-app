@@ -7,16 +7,16 @@ import { AuthUserModel } from './models/AuthUserModel';
   providedIn: 'root',
 })
 export class AuthService {
+  constructor(private http: HttpClient) {}
+  authUser(data: any): Observable<any> {
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json; charset=utf-8')
+      .set('Authorization', `Bearer ${localStorage.getItem('token')}`);
+    return this.http.post<AuthUserModel>('https://dummyjson.com/auth/login', data,{ headers }
+    );
+  }
 
-    constructor(private http:HttpClient){}
-
-    authUser(data:any):Observable<any>{
-      console.log(data);
-      
-      const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8').set('Authorization', `Bearer ${localStorage.getItem('token')}`);
-
-         return this.http.post<AuthUserModel>('https://dummyjson.com/auth/login',data,{headers})
-    }
-
- 
+  getFullUser(id:any):Observable<any>{
+    return this.http.get(`https://dummyjson.com/users/${id}`)
+  }
 }

@@ -1,3 +1,4 @@
+import { AdministrationPageComponent } from './administration-page/administration-page.component';
 import { ProductsDetailComponent } from './products-detail/products-detail.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -6,6 +7,7 @@ import { ProductsFormComponent } from './products-form/products-form.component';
 import { ProductsComponent } from './products/products.component';
 import { ButtonComponent } from './button/button.component';
 import { AuthPageComponent } from './auth-page/auth-page.component';
+import { PersonalAreaComponent } from './personal-area/personal-area.component';
 
 const routes: Routes = [
   {path:'',component:HomePageComponent},
@@ -13,7 +15,9 @@ const routes: Routes = [
   {path:'product',component:ProductsComponent,children:[
     {path:'product-detail',component:ProductsDetailComponent}
   ]},
-  {path:'sign-in',component:AuthPageComponent}
+  {path:'sign-in',component:AuthPageComponent},
+  {path:'app-personal-area',component:PersonalAreaComponent}
+/*   {path:'app-administration-page',component:AdministrationPageComponent} */
   
 ];
 

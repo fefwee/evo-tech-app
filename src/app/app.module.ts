@@ -19,6 +19,11 @@ import { AuthPageComponent } from './auth-page/auth-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './auth.service';
 import { UsersState } from './states/auth-user.state';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+import { PersonalAreaComponent } from './personal-area/personal-area.component';
+import { AdministrationPageComponent } from './administration-page/administration-page.component';
+import { AdministrationCatalogComponent } from './administration-catalog/administration-catalog.component';
+import { AdministrationEditDetailComponent } from './administration-edit-detail/administration-edit-detail.component';
 
 
 @NgModule({
@@ -33,12 +38,17 @@ import { UsersState } from './states/auth-user.state';
     HeaderLinksComponent,
     ProductsFormComponent,
     AuthPageComponent,
+    PersonalAreaComponent,
+    AdministrationPageComponent,
+    AdministrationCatalogComponent,
+    AdministrationEditDetailComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     NgxsModule.forRoot([AppState,UsersState]),
+    NgxsReduxDevtoolsPluginModule.forRoot(),
     ReactiveFormsModule,
     FormsModule
   ],
