@@ -8,11 +8,13 @@ import { AuthUserAction } from '../actions/auth.action';
 
 export class AuthUserModelProfile {
   userProfile:any
+  login!:string
 }
 @State<AuthUserModelProfile>({
   name: 'userstate',
   defaults: {
-    userProfile:null
+    userProfile:null,
+    login:''
   },
 })
 @Injectable()
@@ -30,9 +32,12 @@ authUserAction({getState,setState}:StateContext<AuthUserModelProfile>,{payload}:
 return this.service.authUser(payload).pipe(tap((res)=>{
   const state = getState()
   localStorage.setItem('id',res.id) 
+  localStorage.setItem('token',res.token) 
+  console.log('state')
   setState({
     ...state,
-    userProfile:res
+    userProfile:res,
+    login:res.username
   })
 }))  
  

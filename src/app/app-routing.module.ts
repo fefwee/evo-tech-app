@@ -8,6 +8,7 @@ import { ProductsComponent } from './products/products.component';
 import { ButtonComponent } from './button/button.component';
 import { AuthPageComponent } from './auth-page/auth-page.component';
 import { PersonalAreaComponent } from './personal-area/personal-area.component';
+import { authGuard } from './auth.guard';
 
 const routes: Routes = [
   {path:'',component:HomePageComponent},
@@ -16,8 +17,7 @@ const routes: Routes = [
     {path:'product-detail',component:ProductsDetailComponent}
   ]},
   {path:'sign-in',component:AuthPageComponent},
-  {path:'app-personal-area',component:PersonalAreaComponent}
-/*   {path:'app-administration-page',component:AdministrationPageComponent} */
+  {path:'app-personal-area',component:PersonalAreaComponent,canActivate: [authGuard]}
   
 ];
 

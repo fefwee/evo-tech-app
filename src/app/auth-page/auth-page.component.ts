@@ -1,8 +1,8 @@
 import { Store } from '@ngxs/store';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl,Validators } from '@angular/forms';
-import { AuthService } from '../auth.service';
 import { AuthUserAction } from '../actions/auth.action';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,7 +15,7 @@ export class AuthPageComponent implements OnInit {
   public title: string = 'Вход в личный кабинет';
   
 
-  constructor(private store:Store,private authservice: AuthService){}
+  constructor(private store:Store,private router:Router){}
  
 
   ngOnInit(): void {
@@ -29,7 +29,14 @@ export class AuthPageComponent implements OnInit {
      
   }
 
-  submit(data:any) {
+  login(data:any) {
   this.store.dispatch(new AuthUserAction(data))
+  console.log('dispatch');
+  
+  this.router.navigate(['app-personal-area']) 
+  
 
-}}
+}
+
+
+}
