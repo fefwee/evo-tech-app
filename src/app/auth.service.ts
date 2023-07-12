@@ -9,7 +9,7 @@ import { AuthUserModel } from './models/AuthUserModel';
 export class AuthService {
   constructor(private http: HttpClient) {}
 
-  authUser(data: any): Observable<any> {
+   login (data: any): Observable<any> {
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json; charset=utf-8')
     return this.http.post<AuthUserModel>('https://dummyjson.com/auth/login', data,{ headers }
@@ -22,4 +22,20 @@ export class AuthService {
       .set('Authorization', `Bearer ${localStorage.getItem('token')}`);
     return this.http.get(`https://dummyjson.com/users/${id}`)
   }
+
+  public checkRole(role:string){
+    if(role === 'atuny0'){
+      localStorage.setItem('role','bayer')
+    }
+    else if (role === 'hbingley1'){
+      localStorage.setItem('role','admin')
+    }
+    return role
+  }
+  
+
+  public isAdmin () {
+    return localStorage.getItem('role') === 'admin' && true
+  }
+
 }

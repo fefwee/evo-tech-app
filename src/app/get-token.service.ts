@@ -11,11 +11,10 @@ export class GetTokenService {
     localStorage.setItem('token',item)
   }
 
-
-  public async getItemLocalStorage<T>(key: string): Promise<T | null> {
+  public async getItemLocalStorage<T>(key: string): Promise<T | null | string> {
     try {
-    const result = await JSON.parse(localStorage.getItem(key) || '{}');
-    if (!Object.keys(result).length) {
+    const result = localStorage.getItem(key);
+    if (!result) {
     return null;
     }
     return result;
@@ -23,7 +22,8 @@ export class GetTokenService {
     return null;
     }
     }
+    }
  
     
  
-}
+

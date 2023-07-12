@@ -4,26 +4,18 @@ import { GetTokenService } from './get-token.service';
 
 
 
-
-export const authGuard: CanActivateFn = async (route, state,):Promise<any> => {
+export const authGuard: CanActivateFn = async (route, state,): Promise<any> => {
 
   const getItemService = inject(GetTokenService)
   const router = inject(Router)
+  const response = await getItemService.getItemLocalStorage<string>('token')
+  if(response){
+    return true
+  }
+  else {
+  console.log(2);
   
-  return getItemService.getItemLocalStorage('token').then(res =>{
-    debugger
-    if(res){
-      console.log(1);
-      
-      return true
-    }
-    else {
-      console.log(2);
-      
-      router.navigate(['sign-in'])
-      return false
-    }
-  })
-  
-  
-};
+  router.navigate(['sign-in'])
+  return false
+  }
+  };

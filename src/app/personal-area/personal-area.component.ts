@@ -20,6 +20,8 @@ export class PersonalAreaComponent implements OnInit{
 
 
   public title = 'Личный кабинет'
+  public isAdmin:boolean = false;
+  
    public userInfo:IUser  = {
     age:0,
     ip:'',
@@ -46,8 +48,10 @@ export class PersonalAreaComponent implements OnInit{
         image:res.image
       }
       
-    })  
+    }) 
+     this.isAdmin = this.serviceGetFullUser.isAdmin()
 
   }
+
 
 } 

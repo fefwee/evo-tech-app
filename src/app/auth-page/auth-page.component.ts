@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 export class AuthPageComponent implements OnInit {
   public form!: FormGroup;
   public title: string = 'Вход в личный кабинет';
+  public isAdmin:boolean = false;
   
 
   constructor(private store:Store,private router:Router){}
@@ -25,17 +26,21 @@ export class AuthPageComponent implements OnInit {
       password: new FormControl('',
       [Validators.required,Validators.minLength(5)]),}
     );
- 
-     
   }
+
+  chekIsAdmin () {
+    if(localStorage.getItem('role') === 'admin'){
+      this.isAdmin = true;
+    }
+    else(
+      this.isAdmin = false
+    )
+  }
+
 
   login(data:any) {
   this.store.dispatch(new AuthUserAction(data))
   console.log('dispatch');
-  
-  this.router.navigate(['app-personal-area']) 
-  
-
 }
 
 

@@ -5,9 +5,9 @@
             <img src={{userInfo.image}} alt="">
             <h2>{{userInfo.firstName}}</h2>
         </div>
-        <div>
+        <div *ngIf="isAdmin">
             <a routerLink='/app-administration-page'>
-                <button>Администрирование</button>
+               <app-button btnTitle="Администратор"> </app-button>
             </a>
         </div>
     
