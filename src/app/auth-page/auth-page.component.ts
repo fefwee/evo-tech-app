@@ -11,9 +11,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./auth-page.component.css'],
 })
 export class AuthPageComponent implements OnInit {
+  
+  public bayer = {
+    username:'atuny0',
+    password:'9uQFF1Lh'
+  }
+  public admin = {
+    username:'hbingley1',
+    password:'CQutx25i8r'
+  }
+
   public form!: FormGroup;
   public title: string = 'Вход в личный кабинет';
-  public isAdmin:boolean = false;
+  
   
 
   constructor(private store:Store,private router:Router){}
@@ -28,20 +38,17 @@ export class AuthPageComponent implements OnInit {
     );
   }
 
-  chekIsAdmin () {
-    if(localStorage.getItem('role') === 'admin'){
-      this.isAdmin = true;
-    }
-    else(
-      this.isAdmin = false
-    )
-  }
+  
 
 
   login(data:any) {
+    if(JSON.stringify(data) === JSON.stringify(this.bayer) || JSON.stringify(data) ===  JSON.stringify(this.admin)){
+      console.log(data);
+      
   this.store.dispatch(new AuthUserAction(data))
-  console.log('dispatch');
+    }
+    else {
+      this.router.navigate(['page-error'])
+    }
 }
-
-
 }

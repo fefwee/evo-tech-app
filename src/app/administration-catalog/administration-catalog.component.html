@@ -1,1 +1,20 @@
-<p>administration-catalog works!</p>
+<h3>{{title}}</h3>
+
+<div>
+    <table>
+        <tr>
+            <th>Название товара</th>
+            <th>бренд</th>
+            <th>цена</th>
+            <th>рейтинг</th>
+        </tr>
+        <tr *ngFor="let item of productsAdmin$ | async ">
+            <td>{{item.title}}</td>
+            <td>{{item.brand}}</td>  
+            <td>{{item.price}}</td>
+            <td>{{item.rating}}</td>
+            <td routerLink='/app-administration-edit-detail' [queryParams]="{id:item.id}">редактировать</td>
+        </tr>
+    </table>
+
+</div>

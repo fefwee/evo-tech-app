@@ -1,1 +1,35 @@
-<p>administration-edit-detail works!</p>
+<h2>{{ title }}</h2>
+<div *ngIf = "detailProduct"    class="form_container">
+  <div class="title">{{ detailProduct.title }}</div>
+  <div>
+    <form [formGroup]="form">
+      <div class="top">
+        <div>
+          <span>Название товара</span>
+          <input type="text" value={{detailProduct.title}}  formControlName = 'title' />
+        </div>
+        <div>
+          <span>Краткое описание</span>
+          <input type="text" value={{detailProduct.description}} formControlName = 'description'/>
+        </div>
+      </div>
+      <div class="both">
+        <div>
+          <span>Цена</span>
+          <input type="text" value={{detailProduct.price}} formControlName = 'price'/>
+        </div>
+        <div>
+          <span>Бренд</span>
+          <input type="text" value={{detailProduct.brand}} formControlName = 'brand'/>
+        </div>
+        <div>
+          <span>Рейтинг</span>
+          <input type="text" value={{detailProduct.rating}} formControlName = 'rating'/>
+        </div>
+      </div>
+      <button (click)="saveEditConfig(form.value)">Закрыть</button>
+      <button>Сохранить</button>
+
+    </form>
+  </div>
+</div>

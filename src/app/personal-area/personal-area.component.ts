@@ -30,9 +30,6 @@ export class PersonalAreaComponent implements OnInit{
     image:''
    }
 
-  
-  
-
   constructor( public serviceGetFullUser:AuthService){}
 
   ngOnInit(): void {

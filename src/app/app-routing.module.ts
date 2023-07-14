@@ -9,6 +9,9 @@ import { ButtonComponent } from './button/button.component';
 import { AuthPageComponent } from './auth-page/auth-page.component';
 import { PersonalAreaComponent } from './personal-area/personal-area.component';
 import { authGuard } from './auth.guard';
+import { AdministrationCatalogComponent } from './administration-catalog/administration-catalog.component';
+import { PageErrorComponent } from './page-error/page-error.component';
+import { AdministrationEditDetailComponent } from './administration-edit-detail/administration-edit-detail.component';
 
 const routes: Routes = [
   {path:'',component:HomePageComponent},
@@ -17,7 +20,11 @@ const routes: Routes = [
     {path:'product-detail',component:ProductsDetailComponent}
   ]},
   {path:'sign-in',component:AuthPageComponent},
-  {path:'app-personal-area',component:PersonalAreaComponent,canActivate: [authGuard]}
+  {path:'app-personal-area',component:PersonalAreaComponent,canActivate: [authGuard]},
+  {path:'app-administration-page',component:AdministrationPageComponent},
+  {path:'items',component:AdministrationCatalogComponent},
+  {path:'app-administration-edit-detail',component:AdministrationEditDetailComponent},
+  {path:'page-error',component:PageErrorComponent}
   
 ];
 

@@ -9,14 +9,14 @@ import { AuthUserModel } from './models/AuthUserModel';
 export class AuthService {
   constructor(private http: HttpClient) {}
 
-   login (data: any): Observable<any> {
+   public login (data: any): Observable<any> {
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json; charset=utf-8')
     return this.http.post<AuthUserModel>('https://dummyjson.com/auth/login', data,{ headers }
     );
   }
 
-  getFullUser(id:any):Observable<any>{
+   public getFullUser(id:any):Observable<any>{
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json; charset=utf-8')
       .set('Authorization', `Bearer ${localStorage.getItem('token')}`);
@@ -36,6 +36,9 @@ export class AuthService {
 
   public isAdmin () {
     return localStorage.getItem('role') === 'admin' && true
+  }
+  public isAuthorizated () {
+    return localStorage.getItem('token') ? true : false;
   }
 
 }

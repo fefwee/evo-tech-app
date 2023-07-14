@@ -24,6 +24,7 @@ import { PersonalAreaComponent } from './personal-area/personal-area.component';
 import { AdministrationPageComponent } from './administration-page/administration-page.component';
 import { AdministrationCatalogComponent } from './administration-catalog/administration-catalog.component';
 import { AdministrationEditDetailComponent } from './administration-edit-detail/administration-edit-detail.component';
+import { PageErrorComponent } from './page-error/page-error.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { AdministrationEditDetailComponent } from './administration-edit-detail/
     AdministrationPageComponent,
     AdministrationCatalogComponent,
     AdministrationEditDetailComponent,
+    PageErrorComponent,
   ],
   imports: [
     BrowserModule,

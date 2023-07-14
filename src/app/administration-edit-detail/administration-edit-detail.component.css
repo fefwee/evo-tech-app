@@ -1,0 +1,13 @@
+.both{
+    display: flex;
+}
+.top{
+    display: flex;
+}
+.form_container{
+    display: flex;
+    
+}
+.title{
+    margin-right: 20px;
+}
