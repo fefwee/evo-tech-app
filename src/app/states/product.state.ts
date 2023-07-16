@@ -1,9 +1,11 @@
+import { AdminCatalogService } from './../admin-catalog.service';
 import { GetProductsAction } from './../actions/app.action';
 import { Injectable } from '@angular/core';
 import { ProductService } from '../product.service';
 import { State, Selector, Action, StateContext } from '@ngxs/store';
-import { tap } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { StateProductsModel } from '../models/ProductGetModel';
+import { AdminUpdateAction } from '../actions/admin-update.action';
 
 @State<StateProductsModel>({
   name: 'appstate',
@@ -16,7 +18,7 @@ import { StateProductsModel } from '../models/ProductGetModel';
 })
 @Injectable()
 export class AppState {
-  constructor(private servive: ProductService) {}
+  constructor(private servive: ProductService, private adminService:AdminCatalogService) {}
   @Selector()
   static getProductSelector(state: StateProductsModel) {
     return state.products;
@@ -29,7 +31,7 @@ export class AppState {
         const state = ctx.getState();
         ctx.setState({
           ...state,
-          products: res.products,
+          products:res.products,
           limit: res.limit,
           skip: res.skip,
           total: res.total,
@@ -39,11 +41,32 @@ export class AppState {
       )
       
     );
-    
   }
 
+  @Action(AdminUpdateAction)
+  updateStateAction(ctx:StateContext<StateProductsModel>,action:AdminUpdateAction){
+    return this.adminService.saveEditProduct(action.data,action.id).pipe(
+      tap((res:any) => {
 
- 
+        console.log('ответ',res);
+        const state = ctx.getState();
+        const newObjEdit = state.products.map(item => {
+          if (item.id === res.id) {
+            return res;
+          }
+          return item;
+        });
+            
+        ctx.setState({
+          ...state,
+          products:newObjEdit
+        }
+        );
+      }
+      )
+      
+    );
+  }
   }
   
   

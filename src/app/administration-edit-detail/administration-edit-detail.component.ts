@@ -4,6 +4,7 @@ import { Store } from '@ngxs/store';
 import { ProductService } from '../product.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AdminCatalogService } from '../admin-catalog.service';
+import { AdminUpdateAction } from '../actions/admin-update.action';
 
 @Component({
   selector: 'app-administration-edit-detail',
@@ -48,11 +49,12 @@ export class AdministrationEditDetailComponent implements OnInit {
   }
 
   public saveEditConfig (data:any) {
-    this.adminServive.saveEditProduct(data,this.productId).subscribe((res)=>{
+   
+    this.store.dispatch(new AdminUpdateAction(data,this.productId)).subscribe((res)=>{
       console.log(res);
       
-    })
-    this.router.navigate(['items'])
+    }) 
+    this.router.navigate(['items']) 
 
   }
 
