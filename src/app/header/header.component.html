@@ -1,11 +1,21 @@
 <div class="header_box">
-    <div class="logo">
-        <img src="../../assets/Mark.svg" alt="">
-        <h4>Tech</h4>
-        <app-header-links></app-header-links>
-    </div>
-    
-    <div class="btn_auth">
-        <app-button [btnTitle] = "'Войти'" [btnClass]="''"></app-button>
-    </div>
+  <div class="logo">
+    <img src="../../assets/Mark.svg" alt="" />
+    <h4>Tech</h4>
+    <app-header-links></app-header-links>
+  </div>
+
+  <div class="btn_auth" *ngIf="!token$">
+    <a routerLink="sign-in">
+    <app-button [btnTitle]="'Войти'"></app-button>
+    </a>
+  </div>
+  <div class="btn_auth" *ngIf="token$">
+    <h3 routerLink="app-personal-area">{{ login$ }}</h3>
+    <p>{{ role$ }}</p>
+  
+         <app-button [btnTitle]="'Выйти'"  (btnClick)="logOut()"></app-button>
+
+   
+  </div>
 </div>

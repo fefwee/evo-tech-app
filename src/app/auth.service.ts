@@ -15,6 +15,9 @@ export class AuthService {
     return this.http.post<AuthUserModel>('https://dummyjson.com/auth/login', data,{ headers }
     );
   }
+  public logOut () {
+      localStorage.clear()
+  }
 
    public getFullUser(id:any):Observable<any>{
     const headers = new HttpHeaders()
@@ -26,9 +29,11 @@ export class AuthService {
   public checkRole(role:string){
     if(role === 'atuny0'){
       localStorage.setItem('role','bayer')
+     return 'Покупатель'
     }
     else if (role === 'hbingley1'){
       localStorage.setItem('role','admin')
+     return 'Администратор'
     }
     return role
   }

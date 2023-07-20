@@ -1,6 +1,9 @@
-    <a routerLink="/sign-in">
-        <button class="btn" [ngClass]="btnClass" type="submit" >{{btnTitle}}</button>
-    </a>
-  
-
-
+  <button
+    class="btn"
+    (click)="onClick()"
+    [ngClass]="btnClass"
+    type="submit"
+    [disabled] = 'isDisabled'
+  >
+    {{ btnTitle }}
+  </button>

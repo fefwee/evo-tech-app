@@ -1,3 +1,11 @@
-.auth{
-  padding:9px 205px;
+.auth {
+  padding: 9px 205px;
+  position: relative;
 }
+button:disabled {
+  background-image: url("../../assets/Lockclosed.svg");
+  background-position:left;
+  background-position-x: 10px;
+  background-repeat: no-repeat;
+}
+ 

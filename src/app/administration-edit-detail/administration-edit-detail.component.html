@@ -26,10 +26,11 @@
           <span>Рейтинг</span>
           <input type="text" value={{detailProduct.rating}} formControlName = 'rating'/>
         </div>
-      </div>
-      <button (click)="saveEditConfig(form.value)">Закрыть</button>
-      <button>Сохранить</button>
-
+      </div>  
+      <button (click)="goBack()">Закрыть</button>
+      <app-button (btnClick)="saveEditConfig(form.value)" [btnTitle]="'Сохранить'"></app-button>    
+    
+      
     </form>
   </div>
 </div>

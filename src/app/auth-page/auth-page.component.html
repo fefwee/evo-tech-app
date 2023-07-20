@@ -6,19 +6,6 @@
     <h1>{{ title }}</h1>
     <div>
       <input type="text" placeholder="Логин" formControlName="username" />
-
-      <div
-        *ngIf="form.get('email')?.invalid && form.get('email')?.touched"
-        class="validation"
-      >
-        <small *ngIf="form.get('email')?.errors?.['required']">
-          Введите корректный email</small
-        >
-
-        <small *ngIf="form.get('email')?.errors?.['email']"
-          >поле не может быть пустым</small
-        >
-      </div>
     </div>
     <div>
       <input
@@ -31,19 +18,21 @@
         *ngIf="form.get('password')?.invalid && form.get('password')?.touched"
         class="validation"
       >
-    <small>
-      !
-    </small>
+        <small> Мин 5 символов </small>
+      </div>
     </div>
-    </div>
-    <div class="submit_btn">
-      <!--   <app-button [btnTitle]="'Войти'" [btnClass]="'auth'" ></app-button> -->
-      <a>
-        <button class="btn" (click)="login(form.value)" >Отправить</button>
-      </a>
-      <a>
-      </a>
-      
+    <div class="submit_btn" routerLink="/sign-in">
+      <app-button
+        [btnTitle]="'Отправить'"
+        [btnClass]="'auth'"
+        (btnClick)="login(form.value)"
+        [isDisabled]="!form.valid"
+      >
+      </app-button>
+      <!-- <a>
+        <button [disabled]="!form.valid" class="btn" (click)="login(form.value)" >Отправить</button>
+      </a> -->
+      <a> </a>
     </div>
   </form>
 </div>

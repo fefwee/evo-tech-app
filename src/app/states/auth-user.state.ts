@@ -10,12 +10,16 @@ import { Router } from '@angular/router';
 export class AuthUserModelProfile {
   userProfile:any
   login!:string
+  token!:string
+  role!:string
 }
 @State<AuthUserModelProfile>({
   name: 'userstate',
   defaults: {
     userProfile:null,
-    login:''
+    login:'',
+    token:'',
+    role:''
   },
 })
 @Injectable()
@@ -25,7 +29,7 @@ export class UsersState {
 
   @Selector()
   static getUserProfileSelector(state: AuthUserModelProfile) {
-    return state.userProfile;
+    return state;
   }
 
 @Action(AuthUserAction)
@@ -34,12 +38,14 @@ return this.service.login(payload).pipe(tap((res)=>{
   const state = getState()
   localStorage.setItem('id',res.id) 
   localStorage.setItem('token',res.token) 
-  this.service.checkRole(res.username)
-  console.log('state')
+  const role = this.service.checkRole(res.username)
   setState({
     ...state,
     userProfile:res,
-    login:res.username
+    login:res.username,
+    token:res.token,
+    role:role
+    
   })
   this.router.navigate(['app-personal-area']) 
 }))  

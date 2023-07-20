@@ -1,6 +1,7 @@
 import { Observable } from 'rxjs';
 import { Component, Input, OnInit } from '@angular/core';
 import { ProductGet} from '../models/ProductGetModel';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-products',
@@ -13,10 +14,13 @@ export class ProductsComponent implements OnInit{
  
   @Input() products$!: Observable<ProductGet[]>;
 
-  constructor(){}
+  constructor(private location:Location){}
 
   ngOnInit(): void {
     
+  }
+  goBack(): void {
+    this.location.back();
   }
   
 }

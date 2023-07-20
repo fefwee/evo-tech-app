@@ -12,11 +12,11 @@ import { Router } from '@angular/router';
 })
 export class AuthPageComponent implements OnInit {
   
-  public bayer = {
+  private bayer = {
     username:'atuny0',
     password:'9uQFF1Lh'
   }
-  public admin = {
+  private admin = {
     username:'hbingley1',
     password:'CQutx25i8r'
   }

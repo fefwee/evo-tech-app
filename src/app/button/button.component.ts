@@ -1,4 +1,4 @@
-import { Component, Input, Output, OnInit } from '@angular/core';
+import { Component, Input, Output, OnInit, EventEmitter  } from '@angular/core';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -10,6 +10,8 @@ export class ButtonComponent implements OnInit {
   public loginUser:boolean = false;
   @Input() btnTitle!: string;
   @Input() btnClass!: string;
+  @Input() isDisabled = false;
+  @Output() btnClick = new EventEmitter ()
   
 
   constructor(public service:AuthService) {}
@@ -17,7 +19,12 @@ export class ButtonComponent implements OnInit {
   ngOnInit() {
     
   }
+  public onClick() {
+    this.btnClick.emit()
+  }
   userLOgin(){
     this.loginUser = this.service.isAuthorizated()
   }
+  
+  
 }

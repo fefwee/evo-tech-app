@@ -5,7 +5,7 @@ import { ProductService } from '../product.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AdminCatalogService } from '../admin-catalog.service';
 import { AdminUpdateAction } from '../actions/admin-update.action';
-
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-administration-edit-detail',
   templateUrl: './administration-edit-detail.component.html',
@@ -22,7 +22,9 @@ export class AdministrationEditDetailComponent implements OnInit {
     protected routed: ActivatedRoute,
     private service: ProductService,
     private adminServive:AdminCatalogService,
-    private router:Router
+    private router:Router,
+    private location:Location
+
   ) {
     routed.queryParams.subscribe((m: any) => {
       this.productId = m.id;
@@ -56,6 +58,9 @@ export class AdministrationEditDetailComponent implements OnInit {
     }) 
     this.router.navigate(['items']) 
 
+  }
+  goBack(): void {
+    this.location.back();
   }
 
 
