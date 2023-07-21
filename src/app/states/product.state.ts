@@ -3,7 +3,7 @@ import { GetProductsAction } from './../actions/app.action';
 import { Injectable } from '@angular/core';
 import { ProductService } from '../product.service';
 import { State, Selector, Action, StateContext } from '@ngxs/store';
-import { map, tap } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 import { StateProductsModel } from '../models/ProductGetModel';
 import { AdminUpdateAction } from '../actions/admin-update.action';
 

@@ -1,6 +1,7 @@
 .auth {
   padding: 9px 205px;
   position: relative;
+  width: 100%;  
 }
 button:disabled {
   background-image: url("../../assets/Lockclosed.svg");

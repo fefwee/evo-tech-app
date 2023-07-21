@@ -1,13 +1,17 @@
+<div class="box_detail">
+    <button type="button" (click)="goBack()">go back</button>
 <div *ngIf="paramDetail" class="product_detail_box">
     <div class="image_detail">
-        <img  style="background-image: url({{paramDetail.thumbnail}});">
-        <p class="rating">{{paramDetail.rating}}</p>
+        <img  style="background-image: url({{paramDetail.thumbnail}})">
+        <h5 class="rating">Ретинг: {{paramDetail.rating}}</h5>
     </div>
     <div class="product_description">
-        <p>{{paramDetail.brand}}</p>
+        <p class="brand">{{paramDetail.brand}}</p>
         <h2>{{paramDetail.title}}</h2>
         <p>{{paramDetail.description}}</p>
-        <h2>{{paramDetail.price}}</h2>
+        <h2>{{paramDetail.price}} $</h2>
     </div>
     <router-outlet></router-outlet>
 </div>
+</div>
+<app-footer></app-footer>

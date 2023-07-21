@@ -1,12 +1,21 @@
 .footer_container{
-    display: flex;
-    align-items: flex-end;
-    padding-bottom: 169px;
-    border-bottom: 1px solid  #E5E7EB;
-    ;
-    
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    box-shadow: 0px 2px 2px -1px #0000000F;
+    box-shadow: 0px 2px 3px -1px #0000001A;
 }
-p{
+.item_footer{
+    margin:64px 32px;
+}
+.logo_footer img{
+    padding-bottom: 32px;
+}
+.footer_container > * {
+    color:#6B7280;
+}
+.bot_title{
     text-align: center;
-    margin:32px 0 64px 0;
+    margin: 32px 0;
+    color: var(--gray-400, #9CA3AF);
 }

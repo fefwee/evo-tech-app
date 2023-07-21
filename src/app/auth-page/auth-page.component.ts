@@ -32,7 +32,7 @@ export class AuthPageComponent implements OnInit {
   ngOnInit(): void {
     this.form = new FormGroup({
       username: new FormControl('',
-      [Validators.minLength(3),Validators.required]),
+      [Validators.minLength(5),Validators.required]),
       password: new FormControl('',
       [Validators.required,Validators.minLength(5)]),}
     );

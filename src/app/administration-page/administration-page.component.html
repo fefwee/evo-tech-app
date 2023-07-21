@@ -1,20 +1,22 @@
 <div>
-    <h1>{{title}}</h1>
-
-    <div>
+    <h3>{{title}}</h3>
+    <div class="admin_box">
+    <div class="admin_item_box">
         <div>
-            <span>logo</span>
-            <span>arrow</span>
+            <div class="check_circle check"></div>
+            <div class="arrow arrow_check"></div>
         </div>
-        <p routerLink="/items">Товары</p>
+        <h4 routerLink="/items">Товары</h4>
         <p>Редактирование товаров</p>
     </div>
-    <div>
+    <div class="admin_item_box">
         <div>
-            <span>logo</span>
-            <span>arrow</span>
+            <div class="badge_check check"></div>
+            <div class="arrow arrow_check"></div>
         </div>
-        <p>Тестовый раздел</p>
+        <h4>Тестовый раздел</h4>
         <p>для разработчиков</p>
     </div>
+    </div>
 </div>
+<app-footer></app-footer>

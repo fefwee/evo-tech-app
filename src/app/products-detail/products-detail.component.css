@@ -1,6 +1,10 @@
 .product_detail_box{
     display: flex;
 }
+
+.box_detail button {
+    margin-bottom: 55px;
+}
 .image_detail{
     width: 250px;
     height: 250px;
@@ -14,4 +18,18 @@
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 30px;
+}
+.brand{
+color: var(--blue-800, #1E40AF);
+border-radius: 4px;
+background: var(--blue-100, #DBEAFE);
+padding: 2px 12px;
+max-width: 63px;
+}
+h2{
+    margin:20px 0 19px 0;
+}
+h5{
+    color: rgba(0, 0, 0, 0.50);
+    text-align: center;
 }

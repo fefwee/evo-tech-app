@@ -1,0 +1,45 @@
+.admin_box{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin:187px 0  85px 0;
+}
+.admin_item_box{
+    position: relative;
+    padding: 24px;
+    box-shadow: 0px 2px 2px -1px rgba(0, 0, 0, 0.05),0px 5px 10px -3px rgba(0, 0, 0, 0.1);
+}
+p{
+    color: var(--gray-500, #6B7280);
+}
+.check_circle{
+    background-image: url('../../assets/Checkcircle.svg');
+}
+.badge_check{
+    background-image: url('../../assets/Badgecheck.svg');
+}
+.check {
+    background-repeat: no-repeat; 
+    background-color: #F0FDFA;
+    background-position: center;
+    max-width: 24px;
+    height: 24px;
+    padding: 24px;
+    border-radius: 8px 0px 0px 0px;
+}
+.arrow_check {
+    background-repeat: no-repeat; 
+    background-position: center;
+    max-width: 24px;
+    height: 24px;
+    padding: 24px;
+    border-radius: 8px 0px 0px 0px;
+}
+.arrow{
+    position: absolute;
+    top: 0;
+    right:0;
+    background-image: url('../../assets/Icon.svg');
+}
+h4{
+    margin:32px 0 8px 0;
+}

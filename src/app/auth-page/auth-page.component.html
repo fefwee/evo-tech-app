@@ -23,15 +23,12 @@
     </div>
     <div class="submit_btn" routerLink="/sign-in">
       <app-button
-        [btnTitle]="'Отправить'"
+        [btnTitle]="'Войти'"
         [btnClass]="'auth'"
         (btnClick)="login(form.value)"
         [isDisabled]="!form.valid"
       >
       </app-button>
-      <!-- <a>
-        <button [disabled]="!form.valid" class="btn" (click)="login(form.value)" >Отправить</button>
-      </a> -->
       <a> </a>
     </div>
   </form>

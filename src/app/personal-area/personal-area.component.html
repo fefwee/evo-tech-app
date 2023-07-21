@@ -1,30 +1,31 @@
 <div>
-    <h1>{{title}}</h1>
+    <h3>{{title}}</h3>
    <div class="profile">
-        <div>
+        <div class="logo_box">
             <img src={{userInfo.image}} alt="">
-            <h2>{{userInfo.firstName}}</h2>
+            <h3>{{userInfo.firstName}}</h3>
         </div>
         <div *ngIf="isAdmin">
             <a routerLink='/app-administration-page'>
-                <app-button btnTitle="Администратор" ></app-button>
+                <app-button btnTitle="Администрирование" ></app-button>
             </a>
         </div>
     
     </div>
     <div class="description">
         
-        <div>
+        <div class="desc_box">
             <p>возвраст</p>
-            <h4>{{userInfo.age}}</h4>
+            <h2>{{userInfo.age}}</h2>
         </div>
-        <div>
+        <div class="desc_box">
             <p>email</p>
-            <h4>{{userInfo.email}}</h4>
+            <h2>{{userInfo.email}}</h2>
         </div>
-        <div>
+        <div class="desc_box">
             <p>IP</p>
-            <h4>number</h4>
+            <h2>number</h2>
         </div>
     </div> 
 </div> 
+<app-footer></app-footer>

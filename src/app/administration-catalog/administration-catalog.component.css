@@ -1,9 +1,23 @@
-table,td{
-    border:1px solid black;
+table{
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    border-collapse:collapse
+}
+th{
+    padding:12px 24px;
+    border-bottom:1px solid #E5E7EB; ;
 }
 td{
     padding: 16px 24px;
+    background: var(--gray-50, #F9FAFB);
 }
 th{
 width: 337px;
+background: var(--gray-50, #F9FAFB);
+}
+.title{
+    margin-bottom: 73px;
+}
+.edit{
+    color:#4F46E5
 }

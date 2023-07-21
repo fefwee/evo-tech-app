@@ -1,6 +1,6 @@
-<h2>{{ title }}</h2>
+<h2 class="title">{{ title }}</h2>
 <div *ngIf = "detailProduct"    class="form_container">
-  <div class="title">{{ detailProduct.title }}</div>
+  <div class="title_product">{{ detailProduct.title }}</div>
   <div>
     <form [formGroup]="form">
       <div class="top">
@@ -34,3 +34,4 @@
     </form>
   </div>
 </div>
+<app-footer></app-footer>

@@ -1,4 +1,3 @@
-import { AuthUserModel } from './../models/AuthUserModel';
 import { Injectable } from '@angular/core';
 import { State, Selector, Action, StateContext,} from '@ngxs/store';
 import { tap } from 'rxjs/operators';

@@ -1,16 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminCatalogService{
+  private domain:string | undefined
 
-  constructor( private http:HttpClient  ) {}
+  constructor( private http:HttpClient  ) {
+    this.domain = environment.domainProducts
+  }
 
   public saveEditProduct (data:any,id?:any) {
     console.log(data);
-    return this.http.put(`https://dummyjson.com/products/${id}`,data)
+    return this.http.put(`${this.domain}${id}`,data)
   }
 
 }

@@ -1,7 +1,15 @@
 .navigation {
     display: flex;
-    margin-left: 74px;
+  
 }
 .navigation a {
     margin-right: 20px;
 }
+.column{
+    display: flex;
+    flex-direction: column;
+
+   }
+   .column a:nth-child(1){
+    padding:16px 0;
+   }

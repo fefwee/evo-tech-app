@@ -3,6 +3,7 @@
         <a [routerLink]="['/product','product-detail']" [queryParams]="{id:item.id}" >
         <div class="card_box">
                 <div>
+        
                     <div class="card_img">
                         <img class="bg_image" style="background-image: url({{item.thumbnail}})" alt="">
                     </div>
@@ -13,5 +14,5 @@
     </a>
     </div>
 </div>
-<button type="button" (click)="goBack()">go back</button>
+
 <router-outlet></router-outlet>

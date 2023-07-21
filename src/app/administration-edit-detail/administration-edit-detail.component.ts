@@ -51,11 +51,7 @@ export class AdministrationEditDetailComponent implements OnInit {
   }
 
   public saveEditConfig (data:any) {
-   
-    this.store.dispatch(new AdminUpdateAction(data,this.productId)).subscribe((res)=>{
-      console.log(res);
-      
-    }) 
+    this.store.dispatch(new AdminUpdateAction(data,this.productId))
     this.router.navigate(['items']) 
 
   }

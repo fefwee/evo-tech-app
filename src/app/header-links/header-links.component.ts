@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-header-links',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./header-links.component.css']
 })
 export class HeaderLinksComponent {
+  @Input() headerClass!:string
 
 }

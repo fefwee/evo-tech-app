@@ -25,7 +25,6 @@ import { AdministrationPageComponent } from './administration-page/administratio
 import { AdministrationCatalogComponent } from './administration-catalog/administration-catalog.component';
 import { AdministrationEditDetailComponent } from './administration-edit-detail/administration-edit-detail.component';
 import { PageErrorComponent } from './page-error/page-error.component';
-import { ButtonDirective } from './directive/button.directive';
 
 
 @NgModule({
@@ -45,7 +44,6 @@ import { ButtonDirective } from './directive/button.directive';
     AdministrationCatalogComponent,
     AdministrationEditDetailComponent,
     PageErrorComponent,
-    ButtonDirective,
   ],
   imports: [
     BrowserModule,
