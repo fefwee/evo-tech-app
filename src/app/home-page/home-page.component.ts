@@ -8,22 +8,15 @@ import { ProductGet } from '../models/ProductGetModel';
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.css']
+  styleUrls: ['./home-page.component.css'],
 })
 export class HomePageComponent implements OnInit {
-
-  title = 'Основные товары'
+  title = 'Основные товары';
   @Select(AppState.getProductSelector) products$!: Observable<ProductGet[]>;
-  
-  constructor (private store:Store){
 
+  constructor(private store: Store) {}
+
+  public ngOnInit(): void {
+    this.store.dispatch(new GetProductsAction(10));
   }
-  
-
-  public ngOnInit():void{
-    this.store.dispatch(new GetProductsAction(10))
-  }
-  
-
-
 }

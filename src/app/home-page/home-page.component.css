@@ -1,6 +1,12 @@
-.home_container{
+.home_container {
 }
-h1{
-    text-align: center;
-    margin-bottom: 41px;
+h1 {
+  text-align: center;
+  margin-bottom: 41px;
+}
+
+@media (min-width: 320px) and (max-width: 550px) {
+  h1 {
+    font-size: 24px;
+  }
 }

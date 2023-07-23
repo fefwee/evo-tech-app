@@ -1,10 +1,7 @@
-import { ProductGet } from "../models/ProductGetModel"
+import { ProductGet } from '../models/ProductGetModel';
 
 export class AuthUserAction {
-    static readonly type = '[User] Get Profile user'
-    
-    constructor (public payload:ProductGet[]){}
+  static readonly type = '[User] Get Profile user';
 
+  constructor(public payload: ProductGet[]) {}
 }
-
-

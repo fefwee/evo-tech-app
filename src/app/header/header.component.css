@@ -1,21 +1,129 @@
-.logo{
-    display: flex;
-    align-items: center;
-    padding: 24px 0;
-   
+.logo {
+  display: flex;
+  align-items: center;
+  padding: 24px 0;
+}
+.logo_box {
+  display: flex;
+  align-items: center;
 }
 .logo img {
-    margin-right: 15px;
+  margin-right: 15px;
 }
 .logo h4 {
-    font-weight: 800;
-    margin-right: 74px;
+  font-weight: 800;
+  margin-right: 74px;
 }
-.header_box{
+.header_box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 2px 2px -1px #0000000f;
+  box-shadow: 0px 2px 3px -1px #0000001a;
+  margin-bottom: 40px;
+}
+.login_box_btn {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+.login_box_btn > :first-child {
+  margin-right: 10px;
+}
+.logout {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+}
+.logout_block {
+  top: 100%;
+  right: 0;
+  width: 100%;
+  height: 60px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0px 2px 2px -1px #0000000f;
+  box-shadow: 0px 2px 3px -1px #0000001a;
+  padding-left: 10px;
+  border-radius: 6px;
+  background-color: #ffff;
+}
+.logout_block img{
+  margin-right: 5px;
+}
+.c {
+  grid-area: c;
+}
+.logo {
+  margin-right: 74px;
+  grid-area: a;
+}
+.header_links {
+  width: 100%;
+  grid-area: b;
+}
+
+@media (min-width: 450px) and (max-width: 550px) {
+  .logo h4 {
+    margin-right: 15px;
+  }
+  .logo_box {
     display: flex;
-    align-items: center;
-    justify-content:space-between;
-    box-shadow: 0px 2px 2px -1px #0000000F;
-    box-shadow: 0px 2px 3px -1px #0000001A;
-    margin-bottom: 40px;
+    flex-direction: column;
+    margin-right: 30px;
+  }
+  .header_box {
+    margin-bottom: 5px;
+    padding: 10px 0;
+  }
+}
+@media (min-width: 320px) and (max-width: 550px) {
+  .logo h4 {
+    margin-right: 15px;
+  }
+  .logo_box {
+    display: flex;
+    flex-direction: column;
+  }
+  .login_box_btn h3 {
+    font-size: 18px;
+  }
+  .login_box_btn p {
+    font-size: 10px;
+  }
+  .logout img {
+    width: 18px;
+    height: 18px;
+  }
+  .header_box {
+    display: grid;
+    grid-template-areas:
+      "a c"
+      "b b";
+  }
+  .logo,
+  .header_links {
+    padding: 0 20px 10px 20px;
+  }
+}
+@media (min-width: 550px) and (max-width: 700px) {
+  .logo {
+    margin-right: 0;
+  }
+  .login_box_btn h3 {
+    font-size: 20px;
+  }
+}
+@media (min-width: 700px) and (max-width: 900px) {
+  .logo {
+    margin-right: 30px;
+  }
+  .login_box_btn h3 {
+    font-size: 20px;
+  }
 }

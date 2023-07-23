@@ -1,16 +1,120 @@
-.both{
+.both {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 24px;
+}
+.bacground_container {
+  margin: 24px 32px;
+}
+.form_container {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  align-items: baseline;
+  background: var(--gray-100, #ffffff);
+}
+.general_container {
+  min-height: 450px;
+  background-color: var(--gray-100, #f3f4f6);
+  padding-top: 24px;
+}
+.title_product {
+  margin-right: 60px;
+  padding: 24px;
+}
+.title {
+  margin-bottom: 46px;
+}
+.box_item {
+  display: flex;
+  flex-direction: column;
+}
+input {
+  padding: 9px 13px;
+  border-radius: 6px;
+  border: 1px solid var(--gray-300, #d1d5db);
+  background: var(--white, #fff);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+}
+input:last-child {
+  margin-right: 24px;
+}
+span {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+.box_form {
+  padding-bottom: 24px;
+}
+.btn_box {
+  margin-top: 24px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.btn_box > :first-child {
+  margin-right: 12px;
+}
+
+@media (min-width: 870px) and (max-width: 992px) {
+  .form_container {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .box_form {
+    padding: 24px;
+  }
+}
+@media (min-width: 600px) and (max-width: 870px) {
+  .form_container {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .box_form {
+    padding: 24px;
+    border: 1px solid red;
+  }
+  .both {
     display: flex;
+    flex-direction: column;
+  }
 }
-.top{
+
+@media (min-width: 450px) and (max-width: 700px) {
+  .form_container {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .box_form {
+    padding: 24px;
+  }
+  .both {
     display: flex;
+    flex-direction: column;
+  }
+  .top {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 }
-.form_container{
+@media (min-width: 320px) and (max-width: 450px) {
+  .form_container {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+  }
+  .box_form {
+    padding: 0 20px;
+  }
+  .both {
     display: flex;
-    
-}
-.title_product{
-    margin-right: 20px;
-}
-.title{
-    margin-bottom: 46px;
+    flex-direction: column;
+  }
+  .top {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 }

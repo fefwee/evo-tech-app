@@ -1,29 +1,24 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GetTokenService {
+  constructor() {}
 
-  constructor() { }
-
-  setItemLocalStorage (item:string):void{
-    localStorage.setItem('token',item)
+  setItemLocalStorage(item: string): void {
+    localStorage.setItem('token', item);
   }
 
   public async getItemLocalStorage<T>(key: string): Promise<T | null | string> {
     try {
-    const result = localStorage.getItem(key);
-    if (!result) {
-    return null;
-    }
-    return result;
+      const result = localStorage.getItem(key);
+      if (!result) {
+        return null;
+      }
+      return result;
     } catch (error) {
-    return null;
+      return null;
     }
-    }
-    }
- 
-    
- 
-
+  }
+}

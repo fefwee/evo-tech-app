@@ -1,31 +1,95 @@
-.profile{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.personal_container {
+  margin-bottom: 105px;
 }
 .profile img {
-    max-width: 64px;
-    height: 64px;
-    border-radius: 32px;
-    margin-right: 20px;
-    margin: 72px 20px 72px 0 ;
+  max-width: 64px;
+  height: 64px;
+  border-radius: 32px;
+  margin-right: 20px;
+  margin: 72px 20px 72px 0;
 }
-.description{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+.description {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
-.logo_box{
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
+.logo_box {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
 }
-.desc_box{
-    padding: 24px;
-    border-radius: 8px;
-    background: var(--white, #FFF);
-    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.06), 0px 1px 3px 0px rgba(0, 0, 0, 0.10);
+.desc_box {
+  padding: 24px;
+  border-radius: 8px;
+  background: var(--white, #fff);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.06),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.1);
 }
 .desc_box p {
-    margin-bottom: 4px;
-    color: var(--gray-500, #6B7280);
+  margin-bottom: 4px;
+  color: var(--gray-500, #6b7280);
+}
+
+@media (min-width: 800px) and (max-width: 900px) {
+  h3 {
+    font-size: 25px;
+  }
+  h2 {
+    font-size: 25px;
+  }
+}
+@media (min-width: 600px) and (max-width: 800px) {
+  h3 {
+    font-size: 23px;
+  }
+  h2 {
+    font-size: 20px;
+  }
+  .description {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 400px) and (max-width: 600px) {
+  h3 {
+    font-size: 20px;
+    padding-top: 20px;
+  }
+  h2 {
+    font-size: 20px;
+  }
+  .description {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+}
+@media (min-width: 320px) and (max-width: 400px) {
+  h3 {
+    font-size: 20px;
+  }
+  h2 {
+    font-size: 18px;
+  }
+  .description {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
 }

@@ -1,15 +1,25 @@
 .navigation {
-    display: flex;
-  
+  display: flex;
 }
 .navigation a {
-    margin-right: 20px;
+  margin-right: 20px;
 }
-.column{
-    display: flex;
-    flex-direction: column;
-
-   }
-   .column a:nth-child(1){
-    padding:16px 0;
-   }
+.column {
+  display: flex;
+  flex-direction: column;
+}
+.column a:nth-child(1) {
+  padding: 16px 0;
+}
+@media (min-width: 320px) and (max-width: 550px) {
+  .navigation nav a {
+    font-size: 16px;
+    text-align: center;
+  }
+  .navigation nav {
+    margin: 0 auto;
+  }
+  .navigation a {
+    margin-right: 15px;
+  }
+}

@@ -3,13 +3,12 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-administration-page',
   templateUrl: './administration-page.component.html',
-  styleUrls: ['./administration-page.component.css']
+  styleUrls: ['./administration-page.component.css'],
 })
 export class AdministrationPageComponent implements OnInit {
-  public title = 'Администрирование'
+  public title = 'Администрирование';
 
-  constructor(){}
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 }

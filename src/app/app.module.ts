@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,7 +26,6 @@ import { AdministrationCatalogComponent } from './administration-catalog/adminis
 import { AdministrationEditDetailComponent } from './administration-edit-detail/administration-edit-detail.component';
 import { PageErrorComponent } from './page-error/page-error.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,12 +48,12 @@ import { PageErrorComponent } from './page-error/page-error.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgxsModule.forRoot([AppState,UsersState]),
+    NgxsModule.forRoot([AppState, UsersState]),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
   ],
-  providers: [ProductService,AuthService],
-  bootstrap: [AppComponent]
+  providers: [ProductService, AuthService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

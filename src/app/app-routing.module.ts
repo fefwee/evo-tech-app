@@ -14,22 +14,30 @@ import { PageErrorComponent } from './page-error/page-error.component';
 import { AdministrationEditDetailComponent } from './administration-edit-detail/administration-edit-detail.component';
 
 const routes: Routes = [
-  {path:'',component:HomePageComponent},
-  {path:'catalog',component:ProductsFormComponent},
-  {path:'product',component:ProductsComponent,children:[
-    {path:'product-detail',component:ProductsDetailComponent}
-  ]},
-  {path:'sign-in',component:AuthPageComponent},
-  {path:'app-personal-area',component:PersonalAreaComponent,canActivate: [authGuard]},
-  {path:'app-administration-page',component:AdministrationPageComponent},
-  {path:'items',component:AdministrationCatalogComponent},
-  {path:'app-administration-edit-detail',component:AdministrationEditDetailComponent},
-  {path:'page-error',component:PageErrorComponent}
-  
+  { path: '', component: HomePageComponent },
+  { path: 'catalog', component: ProductsFormComponent },
+  {
+    path: 'product',
+    component: ProductsComponent,
+    children: [{ path: 'product-detail', component: ProductsDetailComponent }],
+  },
+  { path: 'sign-in', component: AuthPageComponent },
+  {
+    path: 'app-personal-area',
+    component: PersonalAreaComponent,
+    canActivate: [authGuard],
+  },
+  { path: 'app-administration-page', component: AdministrationPageComponent },
+  { path: 'items', component: AdministrationCatalogComponent },
+  {
+    path: 'app-administration-edit-detail',
+    component: AdministrationEditDetailComponent,
+  },
+  { path: 'page-error', component: PageErrorComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

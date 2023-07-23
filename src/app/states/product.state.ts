@@ -18,66 +18,54 @@ import { AdminUpdateAction } from '../actions/admin-update.action';
 })
 @Injectable()
 export class AppState {
-  constructor(private servive: ProductService, private adminService:AdminCatalogService) {}
+  constructor(
+    private servive: ProductService,
+    private adminService: AdminCatalogService
+  ) {}
   @Selector()
   static getProductSelector(state: StateProductsModel) {
     return state.products;
   }
 
   @Action(GetProductsAction)
-  getProductStateAction(ctx: StateContext<StateProductsModel>,action:GetProductsAction) {
+  getProductStateAction(
+    ctx: StateContext<StateProductsModel>,
+    action: GetProductsAction
+  ) {
     return this.servive.getProducts(action.limit).pipe(
       tap((res) => {
         const state = ctx.getState();
         ctx.setState({
           ...state,
-          products:res.products,
+          products: res.products,
           limit: res.limit,
           skip: res.skip,
           total: res.total,
-        }
-        );
-      }
-      )
-      
+        });
+      })
     );
   }
 
   @Action(AdminUpdateAction)
-  updateStateAction(ctx:StateContext<StateProductsModel>,action:AdminUpdateAction){
-    return this.adminService.saveEditProduct(action.data,action.id).pipe(
-      tap((res:any) => {
-
-        console.log('ответ',res);
+  updateStateAction(
+    ctx: StateContext<StateProductsModel>,
+    action: AdminUpdateAction
+  ) {
+    return this.adminService.saveEditProduct(action.data, action.id).pipe(
+      tap((res: any) => {
         const state = ctx.getState();
-        const newObjEdit = state.products.map(item => {
+        const newObjEdit = state.products.map((item) => {
           if (item.id === res.id) {
             return res;
           }
           return item;
         });
-            
+
         ctx.setState({
           ...state,
-          products:newObjEdit
-        }
-        );
-      }
-      )
-      
+          products: newObjEdit,
+        });
+      })
     );
   }
-  }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-   
-
-
+}
