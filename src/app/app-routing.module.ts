@@ -5,7 +5,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './home-page/home-page.component';
 import { ProductsFormComponent } from './products-form/products-form.component';
 import { ProductsComponent } from './products/products.component';
-import { ButtonComponent } from './button/button.component';
 import { AuthPageComponent } from './auth-page/auth-page.component';
 import { PersonalAreaComponent } from './personal-area/personal-area.component';
 import { authGuard } from './auth.guard';
