@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   public login$!: any;
   public authorization!:boolean
   public role$!: any;
-  public show!:boolean;
+  public show = false;
 
   constructor(
     private store: Store,
@@ -46,6 +46,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.login$ = localStorage.getItem('login');
       this.role$ =localStorage.getItem('role');
-      this.show  = false;
+     
   }
 }

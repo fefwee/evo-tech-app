@@ -60,7 +60,7 @@ export class AdministrationEditDetailComponent implements OnInit {
 
   public saveEditConfig(data: any) {
     this.store.dispatch(new AdminUpdateAction(data, this.productId));
-    this.router.navigate(['items']);
+    this.router.navigate(['administration-catalog']);
   }
   goBack(): void {
     this.location.back();
