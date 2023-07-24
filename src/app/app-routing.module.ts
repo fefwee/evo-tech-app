@@ -1,38 +1,66 @@
-import { AdministrationPageComponent } from './administration-page/administration-page.component';
-import { ProductsDetailComponent } from './products-detail/products-detail.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomePageComponent } from './home-page/home-page.component';
-import { ProductsFormComponent } from './products-form/products-form.component';
-import { ProductsComponent } from './products/products.component';
-import { AuthPageComponent } from './auth-page/auth-page.component';
-import { PersonalAreaComponent } from './personal-area/personal-area.component';
 import { authGuard } from './auth.guard';
-import { AdministrationCatalogComponent } from './administration-catalog/administration-catalog.component';
-import { PageErrorComponent } from './page-error/page-error.component';
-import { AdministrationEditDetailComponent } from './administration-edit-detail/administration-edit-detail.component';
 
 const routes: Routes = [
-  { path: '', component: HomePageComponent },
-  { path: 'catalog', component: ProductsFormComponent },
+  { path: '', loadChildren:async () => {
+    return (await import (
+      './home-page/home-page.module'
+    )).HomePageModule
+  }},
+  { path: 'catalog', loadChildren:async () => {
+    return (await import (
+      './products-form/products-form.module'
+    )).ProductFormModule
+  }},
   {
     path: 'product',
-    component: ProductsComponent,
-    children: [{ path: 'product-detail', component: ProductsDetailComponent }],
+    loadChildren: async () => {
+      return (await import (
+        './products/products.module'
+      )).ProductsModule
+    },
   },
-  { path: 'sign-in', component: AuthPageComponent },
+  { path: 'sign-in', loadChildren:async () => {
+    return (await import (
+      './auth-page/auth-page.module'
+    )).AuthPageModule
+  }},
   {
     path: 'app-personal-area',
-    component: PersonalAreaComponent,
+    loadChildren:async () => {
+      return (await import (
+        './personal-area/personal-area.module'
+      )).PersonalAreaModule
+    },
     canActivate: [authGuard],
   },
-  { path: 'app-administration-page', component: AdministrationPageComponent },
-  { path: 'items', component: AdministrationCatalogComponent },
+  { path: 'app-administration-page', loadChildren:async () => {
+    return (await import (
+      './administration-page/administration-page.module'
+    )).AdministrationPageModule
+  }},
+  {
+    path: 'administration-catalog',
+    loadChildren: async () => {
+      return (await import(
+        './administration-catalog/administration-catalog.module'
+      )).AdministrationCatalogModule
+    },
+  },
   {
     path: 'app-administration-edit-detail',
-    component: AdministrationEditDetailComponent,
+    loadChildren:async()=>{
+      return (await import(
+        './administration-edit-detail/administration-edit-detail.module'
+      )).AdministrationEditDetailModule
+    },
   },
-  { path: 'page-error', component: PageErrorComponent },
+  { path: 'page-error', loadChildren:async () => {
+    return (await import (
+      './page-error/page-error.module'
+    )).PageErrorModule
+  } },
 ];
 
 @NgModule({
