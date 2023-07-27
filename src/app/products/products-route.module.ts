@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core";
+/* import { NgModule } from "@angular/core";
 import { RouterModule } from "@angular/router";
 import { ProductsComponent } from "./products.component";
 import { ProductsDetailComponent } from "../products-detail/products-detail.component";
@@ -6,7 +6,7 @@ import { ProductsDetailComponent } from "../products-detail/products-detail.comp
 
 const routes = [
     { path: '', component: ProductsComponent, 
-    children: [{ path: 'product-detail', component: ProductsDetailComponent }],},
+    children: [{ path: '/:id/',compыonent: ProductsDetailComponent }],},
 ]
 
 @NgModule({
@@ -15,4 +15,4 @@ const routes = [
   })
 
   export class ProductsRouteModule{
-  }
+  } */

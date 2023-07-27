@@ -30,7 +30,7 @@ export class HeaderComponent implements OnInit {
     this.service.logOut();
     this.login$ = '';
     this.role$ = '';
-    this.router.navigate(['/sign-in']);
+    this.router.navigate(['/auth']);
   }
 
   public toggleCloseBtn() {

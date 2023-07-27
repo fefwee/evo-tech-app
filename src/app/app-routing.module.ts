@@ -13,21 +13,13 @@ const routes: Routes = [
       './products-form/products-form.module'
     )).ProductFormModule
   }},
-  {
-    path: 'product',
-    loadChildren: async () => {
-      return (await import (
-        './products/products.module'
-      )).ProductsModule
-    },
-  },
-  { path: 'sign-in', loadChildren:async () => {
+  { path: 'auth', loadChildren:async () => {
     return (await import (
       './auth-page/auth-page.module'
     )).AuthPageModule
   }},
   {
-    path: 'app-personal-area',
+    path: 'profile',
     loadChildren:async () => {
       return (await import (
         './personal-area/personal-area.module'
@@ -35,13 +27,13 @@ const routes: Routes = [
     },
     canActivate: [authGuard],
   },
-  { path: 'app-administration-page', loadChildren:async () => {
+  { path: 'admin', loadChildren:async () => {
     return (await import (
       './administration-page/administration-page.module'
     )).AdministrationPageModule
   }},
   {
-    path: 'administration-catalog',
+    path: 'items',
     loadChildren: async () => {
       return (await import(
         './administration-catalog/administration-catalog.module'

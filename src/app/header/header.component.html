@@ -10,13 +10,13 @@
   </div>
   <div class="c">
   <div class="btn_auth second" *ngIf="!isAuthorizated()">
-    <a routerLink="sign-in">
+    <a routerLink="auth">
     <app-button [btnTitle]="'Войти'"></app-button>
     </a>
   </div>
   <div class="btn_auth login_box_btn" *ngIf="isAuthorizated()">
     <div>
-      <h3 routerLink="app-personal-area">{{ login$ }}</h3>
+      <h3 routerLink="profile">{{ login$ }}</h3>
     <p>{{ role$ }}</p>
     </div>
     <div (click)="toggleCloseBtn()" class="logout" >

@@ -13,7 +13,7 @@ export class PersonalAreaComponent implements OnInit {
 
   public userInfo: IUser = {
     age: 0,
-    ip: '',
+    ip: 0,
     email: '',
     firstName: '',
     image: '',

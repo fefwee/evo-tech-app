@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { NgxsModule } from '@ngxs/store';
 import { ProductsComponent } from './products/products.component';
 import { ProductService } from './product.service';
-import { AppState } from './states/product.state';
 import { HomePageComponent } from './home-page/home-page.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -48,7 +47,7 @@ import { PageErrorComponent } from './page-error/page-error.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgxsModule.forRoot([AppState, UsersState]),
+    NgxsModule.forRoot([ UsersState]),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     ReactiveFormsModule,
     FormsModule,

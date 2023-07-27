@@ -6,11 +6,11 @@
             <h3>{{userInfo.firstName}}</h3>
         </div>
         <div *ngIf="isAdmin">
-            <a routerLink='/app-administration-page'>
+            <a routerLink='/admin'>
                 <app-button btnTitle="Администрирование" ></app-button>
             </a>
         </div>
-    
+        
     </div>
     <div class="description">
         
@@ -24,7 +24,7 @@
         </div>
         <div class="desc_box">
             <p>IP</p>
-            <h2>number</h2>
+            <h2>{{userInfo.ip}}</h2>
         </div>
     </div> 
 </div> 

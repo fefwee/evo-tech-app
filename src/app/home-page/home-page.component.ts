@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Select, Store } from '@ngxs/store';
-import { GetProductsAction } from '../actions/app.action';
-import { AppState } from '../states/product.state';
-import { Observable } from 'rxjs';
-import { ProductGet } from '../models/ProductGetModel';
+import { ProductService } from '../product.service';
+import { Iproduct } from '../models/ProductGetModel';
 
 @Component({
   selector: 'app-home-page',
@@ -12,11 +9,11 @@ import { ProductGet } from '../models/ProductGetModel';
 })
 export class HomePageComponent implements OnInit {
   title = 'Основные товары';
-  @Select(AppState.getProductSelector) products$!: Observable<ProductGet[]>;
-
-  constructor(private store: Store) {}
+  public products:Iproduct[] = []
+  constructor(private service:ProductService) {}
 
   public ngOnInit(): void {
-    this.store.dispatch(new GetProductsAction(10));
+    this.service.getProducts(10).subscribe((products)=>this.products = products.products)
   }
+
 }

@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core";
+/* import { NgModule } from "@angular/core";
 import { ProductsRouteModule } from "./products-route.module";
 
 
@@ -8,4 +8,4 @@ import { ProductsRouteModule } from "./products-route.module";
     exports: [ProductsRouteModule],
   })
 
-  export class ProductsModule{}
+  export class ProductsModule{} */

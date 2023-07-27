@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngxs/store';
 import { ProductService } from '../product.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AdminCatalogService } from '../admin-catalog.service';
 import { AdminUpdateAction } from '../actions/admin-update.action';
 import { Location } from '@angular/common';
 @Component({
@@ -21,9 +20,10 @@ export class AdministrationEditDetailComponent implements OnInit {
     private store: Store,
     protected routed: ActivatedRoute,
     private service: ProductService,
-    private adminServive: AdminCatalogService,
     private router: Router,
     private location: Location
+    
+    
   ) {
     routed.queryParams.subscribe((m: any) => {
       this.productId = m.id;
@@ -33,11 +33,14 @@ export class AdministrationEditDetailComponent implements OnInit {
   ngOnInit(): void {
     this.service.getProductsId(this.productId).subscribe((item: any) => {
       this.detailProduct = item;
+    
+      
     });
     this.form = new FormGroup({
       title: new FormControl('', [
         Validators.minLength(3),
         Validators.required,
+      
       ]),
       description: new FormControl('', [
         Validators.required,
@@ -59,8 +62,8 @@ export class AdministrationEditDetailComponent implements OnInit {
   }
 
   public saveEditConfig(data: any) {
-    this.store.dispatch(new AdminUpdateAction(data, this.productId));
-    this.router.navigate(['administration-catalog']);
+    this.store.dispatch(new AdminUpdateAction(data, this.productId))
+    this.router.navigate(['items']);
   }
   goBack(): void {
     this.location.back();

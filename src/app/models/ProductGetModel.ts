@@ -15,6 +15,19 @@ export interface ProductGet {
   thumbnail: string;
   images: ImageArr[];
 }
+export interface Iproduct {
+  id: number;
+  title: string;
+  description: string;
+  price: number;
+  discountPercentage: number;
+  rating: number;
+  stock: number;
+  brand: string;
+  category: string;
+  thumbnail: string;
+  images: ImageArr[];
+}
 export interface StateProductsModel {
   products: ProductGet[];
   total: number;

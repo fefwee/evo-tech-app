@@ -1,9 +1,8 @@
 <div class="card_grid_box" >
-    <div *ngFor="let item of products$ | async ">
-        <a [routerLink]="['/product','product-detail']" [queryParams]="{id:item.id}" >
+    <div *ngFor="let item of productsArr ">
+        <a routerLink="catalog/{{productsArr.id}}/" >
         <div class="card_box">
                 <div>
-        
                     <div class="card_img">
                         <img class="bg_image" style="background-image: url({{item.thumbnail}})" alt="">
                     </div>
@@ -16,3 +15,5 @@
 </div>
 
 <router-outlet></router-outlet>
+
+

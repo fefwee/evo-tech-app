@@ -15,7 +15,7 @@ export interface AuthParams {
 }
 export interface IUser {
   age: number;
-  ip: string;
+  ip: number;
   email: string;
   firstName: string;
   image: string;

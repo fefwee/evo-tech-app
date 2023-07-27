@@ -1,6 +1,5 @@
-import { Observable } from 'rxjs';
 import { Component, Input, OnInit } from '@angular/core';
-import { ProductGet } from '../models/ProductGetModel';
+import { Iproduct, } from '../models/ProductGetModel';
 
 @Component({
   selector: 'app-products',
@@ -8,7 +7,7 @@ import { ProductGet } from '../models/ProductGetModel';
   styleUrls: ['./products.component.css'],
 })
 export class ProductsComponent implements OnInit {
-  @Input() products$!: Observable<ProductGet[]>;
+  @Input() productsArr!:any;
 
   constructor() {}
 

@@ -50,7 +50,7 @@ export class UsersState {
           token: res.token,
           role: role,
         });
-        this.router.navigate(['app-personal-area']);
+        this.router.navigate(['profile']);
       })
     );
   }

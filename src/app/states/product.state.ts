@@ -1,4 +1,4 @@
-import { AdminCatalogService } from './../admin-catalog.service';
+/* import { AdminCatalogService } from './../admin-catalog.service';
 import { GetProductsAction } from './../actions/app.action';
 import { Injectable } from '@angular/core';
 import { ProductService } from '../product.service';
@@ -69,3 +69,4 @@ export class AppState {
     );
   }
 }
+ */

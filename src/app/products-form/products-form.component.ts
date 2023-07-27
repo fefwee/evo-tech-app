@@ -1,9 +1,6 @@
-import { ProductGet } from './../models/ProductGetModel';
-import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
-import { Select, Store } from '@ngxs/store';
-import { AppState } from '../states/product.state';
-import { GetProductsAction } from '../actions/app.action';
+import { ProductService } from '../product.service';
+import { Iproduct } from '../models/ProductGetModel';
 
 @Component({
   selector: 'app-products-form',
@@ -11,11 +8,14 @@ import { GetProductsAction } from '../actions/app.action';
   styleUrls: ['./products-form.component.css'],
 })
 export class ProductsFormComponent implements OnInit {
-  @Select(AppState.getProductSelector) products$!: Observable<ProductGet[]>;
-
-  constructor(private store: Store) {}
+  public products:Iproduct[] = []
+  constructor(private service:ProductService) {}
 
   public ngOnInit(): void {
-    this.store.dispatch(new GetProductsAction());
+    this.getProduct(50)
+    
+  }
+  getProduct(limit:number):void{
+    this.service.getProducts(limit).subscribe((products)=> this.products = products.products)
   }
 }

@@ -15,13 +15,13 @@ export class ProductsDetailComponent implements OnInit {
 
   constructor(
     private store: Store,
-    protected routed: ActivatedRoute,
+    protected route: ActivatedRoute,
     private productService: ProductService,
     private location: Location
   ) {
-    routed.queryParams.subscribe((m: any) => {
+   /*  routed.queryParams.subscribe((m: any) => {
       this.productId = m.id;
-    });
+    }); */
   }
 
   ngOnInit(): void {
@@ -29,6 +29,14 @@ export class ProductsDetailComponent implements OnInit {
       this.paramDetail = item;
     });
   }
+
+  getProducts():void{
+   const id = Number(this.route.snapshot.paramMap.get('id'))   
+   this.productService.getProductsId(id).subscribe((productsId)=>{
+    this.paramDetail = productsId
+   })
+  }
+
   goBack(): void {
     this.location.back();
   }

@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
-import { Select, Store } from '@ngxs/store';
-import { ProductGet } from '../models/ProductGetModel';
-import { AppState } from '../states/product.state';
-import { GetProductsAction } from '../actions/app.action';
-import { Observable } from 'rxjs';
+import { ProductService } from '../product.service';
+import { Iproduct } from '../models/ProductGetModel';
 
 @Component({
   selector: 'app-administration-catalog',
@@ -11,15 +8,21 @@ import { Observable } from 'rxjs';
   styleUrls: ['./administration-catalog.component.css'],
 })
 export class AdministrationCatalogComponent {
+
+
   public title = 'Администрирование - Товары';
 
-  @Select(AppState.getProductSelector) productsAdmin$!: Observable<
-    ProductGet[]
-  >;
-  constructor(private store: Store) {}
+  public products:Iproduct[] = []
+
+  constructor(private service:ProductService) {}
 
   ngOnInit(): void {
-    this.store.dispatch(new GetProductsAction());
+    this.getProducts(50)
+   
+  }
+  getProducts(limit:number):void {
+    this.service.getProducts(limit).subscribe((products)=> {
+      this.products = products.products})
   }
 
 }
