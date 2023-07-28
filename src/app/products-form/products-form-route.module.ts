@@ -5,8 +5,8 @@ import { ProductsDetailComponent } from "../products-detail/products-detail.comp
 
 
 const routes = [
-    { path: '', component: ProductsFormComponent,
-    children: [{ path: ':id/',compыonent: ProductsDetailComponent }] },
+    { path: '', component: ProductsFormComponent },
+    { path: ':id', component: ProductsDetailComponent}
 ]
 
 @NgModule({
@@ -14,5 +14,4 @@ const routes = [
     exports: [RouterModule],
   })
 
-  export class ProductFormRouteModule{
-  }
+  export class ProductFormRouteModule{}
