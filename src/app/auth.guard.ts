@@ -5,7 +5,7 @@ import { GetTokenService } from './get-token.service';
 export const authGuard: CanActivateFn = async (route, state): Promise<any> => {
   const getItemService = inject(GetTokenService);
   const router = inject(Router);
-  const response = await getItemService.getItemLocalStorage<string>('token');
+  const response = true
   if (response) {
     return true;
   } else {

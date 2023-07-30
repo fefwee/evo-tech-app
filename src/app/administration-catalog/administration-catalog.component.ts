@@ -10,7 +10,7 @@ import { Iproduct } from '../models/ProductGetModel';
 export class AdministrationCatalogComponent {
 
 
-  public title = 'Администрирование - Товары';
+   public title = 'Администрирование - Товары';
 
   public products:Iproduct[] = []
 

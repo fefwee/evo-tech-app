@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { authGuard } from './auth.guard';
+import { PageErrorComponent } from './page-error/page-error.component';
 
 const routes: Routes = [
   {
     path: '',
+    pathMatch: 'full',
     loadChildren: async () => {
       return (await import('./home-page/home-page.module')).HomePageModule;
     },
@@ -38,28 +40,8 @@ const routes: Routes = [
     },
   },
   {
-    path: 'items',
-    loadChildren: async () => {
-      return (
-        await import('./administration-catalog/administration-catalog.module')
-      ).AdministrationCatalogModule;
-    },
-  },
-  {
-    path: 'app-administration-edit-detail',
-    loadChildren: async () => {
-      return (
-        await import(
-          './administration-edit-detail/administration-edit-detail.module'
-        )
-      ).AdministrationEditDetailModule;
-    },
-  },
-  {
-    path: 'page-error',
-    loadChildren: async () => {
-      return (await import('./page-error/page-error.module')).PageErrorModule;
-    },
+    path: '**',
+    component: PageErrorComponent,
   },
 ];
 

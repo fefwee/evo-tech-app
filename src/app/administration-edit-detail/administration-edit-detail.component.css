@@ -58,7 +58,12 @@ span {
 .btn_box > :first-child {
   margin-right: 12px;
 }
-
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+input.ng-valid.ng-touched {
+  border: 1px solid green;
+}
 @media (min-width: 870px) and (max-width: 992px) {
   .form_container {
     display: grid;

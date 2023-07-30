@@ -9,7 +9,10 @@ import { Iproduct, } from '../models/ProductGetModel';
 export class ProductsComponent implements OnInit {
   @Input() productsArr!:any;
 
-  constructor() {}
+  constructor() {
+
+    
+  }
 
   ngOnInit(): void {}
 }

@@ -1,31 +1,29 @@
 <div class="personal_container">
-    <h3>{{title}}</h3>
-   <div class="profile">
-        <div class="logo_box">
-            <img src={{userInfo.image}} alt="">
-            <h3>{{userInfo.firstName}}</h3>
-        </div>
-        <div *ngIf="isAdmin">
-            <a routerLink='/admin'>
-                <app-button btnTitle="Администрирование" ></app-button>
-            </a>
-        </div>
-        
+  <h3>{{ title }}</h3>
+  <div class="profile">
+    <div class="logo_box">
+      <img src="{{ userInfo.image }}" alt="" />
+      <h3>{{ userInfo.firstName }}</h3>
     </div>
-    <div class="description">
-        
-        <div class="desc_box">
-            <p>возвраст</p>
-            <h2>{{userInfo.age}}</h2>
-        </div>
-        <div class="desc_box">
-            <p>email</p>
-            <h2>{{userInfo.email}}</h2>
-        </div>
-        <div class="desc_box">
-            <p>IP</p>
-            <h2>{{userInfo.ip}}</h2>
-        </div>
-    </div> 
-</div> 
+    <div *ngIf="isAdmin">
+      <a routerLink="/admin">
+        <app-button btnTitle="Администрирование"></app-button>
+      </a>
+    </div>
+  </div>
+  <div class="description">
+    <div class="desc_box">
+      <p>возвраст</p>
+      <h2>{{ userInfo.age }}</h2>
+    </div>
+    <div class="desc_box">
+      <p>email</p>
+      <h2>{{ userInfo.email }}</h2>
+    </div>
+    <div class="desc_box">
+      <p>IP</p>
+      <h2>{{ userInfo.ip }}</h2>
+    </div>
+  </div>
+</div>
 <app-footer></app-footer>

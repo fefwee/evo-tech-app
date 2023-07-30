@@ -22,4 +22,8 @@ export class ProductService {
   getProductsId(id: number): Observable<StateProductsModel> {
     return this.http.get<StateProductsModel>(`${this.domain}${id}`);
   }
+
+  productUpdate(updateObj:any,id:number) : Observable<any>{
+    return this.http.put<any>(`${this.domain}${id}`,updateObj)
+  }
 }

@@ -24,9 +24,6 @@ export class AuthService {
       headers,
     });
   }
-  public logOut() {
-    localStorage.clear();
-  }
 
   public getFullUser(id: any): Observable<any> {
     const headers = new HttpHeaders()
@@ -37,19 +34,10 @@ export class AuthService {
 
   public checkRole(role: string) {
     if (role === 'atuny0') {
-      localStorage.setItem('role', 'Покупатель');
       return 'Покупатель';
     } else if (role === 'hbingley1') {
-      localStorage.setItem('role', 'Администратор');
       return 'Администратор';
     }
     return role;
-  }
-
-  public isAdmin() {
-    return localStorage.getItem('role') === 'Администратор' && true;
-  }
-  public isAuthorizated() {
-    return localStorage.getItem('token') ? true : false;
   }
 }

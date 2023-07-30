@@ -38,11 +38,6 @@ export class UsersState {
       tap((res) => {
         const state = getState();
         const role = this.service.checkRole(res.username);
-        localStorage.setItem('role',role)
-        localStorage.setItem('id', res.id);
-        localStorage.setItem('token', res.token);
-        localStorage.setItem('login',res.username)
-      
         setState({
           ...state,
           userProfile: res,

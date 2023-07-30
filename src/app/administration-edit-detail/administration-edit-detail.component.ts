@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Store } from '@ngxs/store';
 import { ProductService } from '../product.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AdminUpdateAction } from '../actions/admin-update.action';
 import { Location } from '@angular/common';
 @Component({
   selector: 'app-administration-edit-detail',
@@ -17,30 +15,21 @@ export class AdministrationEditDetailComponent implements OnInit {
   public form!: FormGroup;
 
   constructor(
-    private store: Store,
-    protected routed: ActivatedRoute,
+    protected route: ActivatedRoute,
     private service: ProductService,
     private router: Router,
     private location: Location
-    
-    
-  ) {
-    routed.queryParams.subscribe((m: any) => {
-      this.productId = m.id;
-    });
-  }
+  ) {}
 
   ngOnInit(): void {
+    this.productId = Number(this.route.snapshot.paramMap.get('id'));
     this.service.getProductsId(this.productId).subscribe((item: any) => {
       this.detailProduct = item;
-    
-      
     });
     this.form = new FormGroup({
       title: new FormControl('', [
-        Validators.minLength(3),
+        Validators.minLength(1),
         Validators.required,
-      
       ]),
       description: new FormControl('', [
         Validators.required,
@@ -62,8 +51,10 @@ export class AdministrationEditDetailComponent implements OnInit {
   }
 
   public saveEditConfig(data: any) {
-    this.store.dispatch(new AdminUpdateAction(data, this.productId))
-    this.router.navigate(['items']);
+    this.service.productUpdate(data, this.productId).subscribe((res) => {
+      console.log(res);
+    });
+    this.router.navigate(['admin/items']);
   }
   goBack(): void {
     this.location.back();

@@ -19,7 +19,4 @@ export class ButtonComponent implements OnInit {
   public onClick() {
     this.btnClick.emit();
   }
-  userLOgin() {
-    this.loginUser = this.service.isAuthorizated();
-  }
 }

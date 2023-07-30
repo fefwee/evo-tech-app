@@ -1,6 +1,8 @@
 import { IUser } from './../models/AuthUserModel';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
+import { Store } from '@ngxs/store';
+import { UsersState } from '../states/auth-user.state';
 
 @Component({
   selector: 'app-personal-area',
@@ -10,6 +12,7 @@ import { AuthService } from '../auth.service';
 export class PersonalAreaComponent implements OnInit {
   public title = 'Личный кабинет';
   public isAdmin: boolean = false;
+  public id!:any;
 
   public userInfo: IUser = {
     age: 0,
@@ -19,12 +22,17 @@ export class PersonalAreaComponent implements OnInit {
     image: '',
   };
 
-  constructor(public serviceGetFullUser: AuthService) {}
+  constructor(private serviceGetFullUser: AuthService,private store:Store) {
+    store.select(UsersState.getUserProfileSelector).subscribe((res)=>{
+      this.id = res.userProfile.id
+      if(res.role === 'Администратор'){
+        this.isAdmin = true
+      }
+    })
+  }
 
   ngOnInit(): void {
-    const id = localStorage.getItem('id');
-
-    this.serviceGetFullUser.getFullUser(id).subscribe((res) => {
+    this.serviceGetFullUser.getFullUser(this.id).subscribe((res) => {
       this.userInfo = {
         age: res.age,
         ip: res.ip,
@@ -33,6 +41,6 @@ export class PersonalAreaComponent implements OnInit {
         image: res.image,
       };
     });
-    this.isAdmin = this.serviceGetFullUser.isAdmin();
+
   }
 }

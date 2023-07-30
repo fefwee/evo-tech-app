@@ -10,7 +10,6 @@ import { Iproduct } from '../models/ProductGetModel';
 export class ProductsFormComponent implements OnInit {
   public products:Iproduct[] = []
   constructor(private service:ProductService) {}
-
   public ngOnInit(): void {
     this.getProduct(50)
     

@@ -1,6 +1,6 @@
 <div class="header_box">
   <div class="logo">
-    <div class="logo_box" (click)="isAuthorizated">
+    <div class="logo_box">
     <img src="../../assets/Mark.svg" alt="" />
     <h4>Tech</h4>
   </div>
@@ -9,12 +9,12 @@
     <app-header-links></app-header-links>
   </div>
   <div class="c">
-  <div class="btn_auth second" *ngIf="!isAuthorizated()">
+  <div class="btn_auth second" *ngIf="!login$">
     <a routerLink="auth">
     <app-button [btnTitle]="'Войти'"></app-button>
     </a>
   </div>
-  <div class="btn_auth login_box_btn" *ngIf="isAuthorizated()">
+  <div class="btn_auth login_box_btn" *ngIf="login$">
     <div>
       <h3 routerLink="profile">{{ login$ }}</h3>
     <p>{{ role$ }}</p>

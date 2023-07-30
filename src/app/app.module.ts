@@ -11,6 +11,7 @@ import { AuthService } from './auth.service';
 import { UsersState } from './states/auth-user.state';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { SharedModule } from './shared/shared.module';
+import { NgxsResetPluginModule } from 'ngxs-reset-plugin';
 
 @NgModule({
   declarations: [
@@ -18,13 +19,15 @@ import { SharedModule } from './shared/shared.module';
   ],
   imports: [
     SharedModule,
-    BrowserModule,
     AppRoutingModule,
+    BrowserModule,
     HttpClientModule,
     NgxsModule.forRoot([ UsersState]),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     ReactiveFormsModule,
     FormsModule,
+    NgxsModule.forRoot([UsersState]),NgxsResetPluginModule.forRoot()
+    
   ],
   providers: [ProductService, AuthService],
   bootstrap: [AppComponent],

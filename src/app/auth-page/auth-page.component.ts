@@ -42,10 +42,8 @@ export class AuthPageComponent implements OnInit {
       JSON.stringify(data) === JSON.stringify(this.bayer) ||
       JSON.stringify(data) === JSON.stringify(this.admin)
     ) {
-
-      this.store.dispatch(new AuthUserAction(data));
-    } else {
-      this.router.navigate(['page-error']);
+      this.store.dispatch(new AuthUserAction(data));  
     }
+ 
   }
 }

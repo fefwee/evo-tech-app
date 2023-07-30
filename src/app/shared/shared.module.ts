@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ProductsComponent } from '../products/products.component';
+import { AdministrationEditDetailComponent } from '../administration-edit-detail/administration-edit-detail.component';
 
 @NgModule({
   imports: [CommonModule,RouterModule,ReactiveFormsModule],
@@ -20,6 +21,7 @@ import { ProductsComponent } from '../products/products.component';
     PageErrorComponent,
     HeaderLinksComponent,
     ProductsDetailComponent,
+    AdministrationEditDetailComponent
   ],
   exports: [
     ProductsComponent,
@@ -29,9 +31,11 @@ import { ProductsComponent } from '../products/products.component';
     PageErrorComponent,
     HeaderLinksComponent,
     ProductsDetailComponent,
+    AdministrationEditDetailComponent,
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ],
 })
 export class SharedModule {}

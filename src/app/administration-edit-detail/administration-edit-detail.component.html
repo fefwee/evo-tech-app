@@ -10,6 +10,12 @@
         <div class="box_item">
           <span>Название товара</span>
           <input type="text" value={{detailProduct.title}}  formControlName = 'title' />
+          <div
+          *ngIf="form.get('title')?.invalid && form.get('title')?.touched"
+          class="validation"
+        >
+          <small> Мин 5 символов </small>
+        </div>
         </div>
         <div class="box_item">
           <span>Краткое описание</span>
@@ -36,8 +42,8 @@
   </div>
 </div>
 <div class="btn_box">
-  <app-button (btnClick)="goBack()" btnClass="return_btn" btnTitle="Закрыть"></app-button>
-  <app-button (btnClick)="saveEditConfig(form.value)" [btnTitle]="'Сохранить'"></app-button>   
+  <app-button (btnClick)="goBack()" btnClass="return_btn" btnTitle="Закрыть" ></app-button>
+  <app-button (btnClick)="saveEditConfig(form.value)" [btnTitle]="'Сохранить'" [isDisabled]="!form.valid"></app-button>   
   </div>
 </div>
 
