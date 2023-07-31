@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthUserAction } from '../actions/auth.action';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-auth-page',
@@ -22,9 +23,10 @@ export class AuthPageComponent implements OnInit {
   public form!: FormGroup;
   public title: string = 'Вход в личный кабинет';
 
-  constructor(private store: Store, private router: Router) {}
+  constructor(private store: Store, private router: Router,private titleService:Title) {}
 
   ngOnInit(): void {
+    this.titleService.setTitle(this.title)
     this.form = new FormGroup({
       username: new FormControl('', [
         Validators.minLength(5),
@@ -44,6 +46,6 @@ export class AuthPageComponent implements OnInit {
     ) {
       this.store.dispatch(new AuthUserAction(data));  
     }
- 
+    
   }
 }

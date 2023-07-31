@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthUserModel } from './models/AuthUserModel';
+import { Store } from '@ngxs/store';
+import { UsersState } from './states/auth-user.state';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +12,7 @@ import { AuthUserModel } from './models/AuthUserModel';
 export class AuthService {
   private domainLogin: string | undefined;
   private domainUser: string | undefined;
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,private store:Store) {
     this.domainLogin = environment.domainLogin;
     this.domainUser = environment.domainUsers;
   }
@@ -22,7 +24,7 @@ export class AuthService {
     );
     return this.http.post<AuthUserModel>(`${this.domainLogin}`, data, {
       headers,
-    });
+    }); 
   }
 
   public getFullUser(id: any): Observable<any> {
@@ -40,4 +42,13 @@ export class AuthService {
     }
     return role;
   }
+  public isLoggedIn(){
+    let token = null
+    const isLogged = this.store.select(UsersState.getUserProfileSelector).subscribe((res)=>{
+      token = res.token
+    })
+     return token? true : false
+
+  }
+  
 }

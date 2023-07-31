@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../product.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
+import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-administration-edit-detail',
   templateUrl: './administration-edit-detail.component.html',
@@ -18,10 +19,12 @@ export class AdministrationEditDetailComponent implements OnInit {
     protected route: ActivatedRoute,
     private service: ProductService,
     private router: Router,
-    private location: Location
+    private location: Location,
+    private titleService:Title
   ) {}
 
   ngOnInit(): void {
+    this.titleService.setTitle(this.title)
     this.productId = Number(this.route.snapshot.paramMap.get('id'));
     this.service.getProductsId(this.productId).subscribe((item: any) => {
       this.detailProduct = item;

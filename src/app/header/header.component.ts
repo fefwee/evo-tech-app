@@ -3,14 +3,14 @@ import { Store } from '@ngxs/store';
 import { UsersState } from '../states/auth-user.state';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
-import { StateResetAll } from 'ngxs-reset-plugin';
+import { StateClear, StateReset, StateResetAll } from 'ngxs-reset-plugin';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit{
   public login$!: any;
   public authorization!: boolean;
   public role$!: any;
@@ -28,9 +28,7 @@ export class HeaderComponent implements OnInit {
   }
 
   public logOut() {
-    this.store.dispatch(
-      new StateResetAll()
-    )
+    this.store.dispatch(new StateResetAll());
     this.router.navigate(['auth']);
   }
 
@@ -38,10 +36,6 @@ export class HeaderComponent implements OnInit {
     this.show = !this.show;
   }
 
-
-  ngOnInit(): void {
-   /*  if(!this.login$){
-      this.router.navigate(['auth'])
-    } */
-  }
+  ngOnInit(): void {}
+ 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-administration-page',
@@ -8,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class AdministrationPageComponent implements OnInit {
   public title = 'Администрирование';
 
-  constructor() {}
+  constructor(private titleService:Title) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.titleService.setTitle(this.title)
+  }
 }

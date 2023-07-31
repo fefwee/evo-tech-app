@@ -1,16 +1,14 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
-import { GetTokenService } from './get-token.service';
+import { AuthService } from './auth.service';
 
 export const authGuard: CanActivateFn = async (route, state): Promise<any> => {
-  const getItemService = inject(GetTokenService);
   const router = inject(Router);
-  const response = true
-  if (response) {
+  const token = inject(AuthService)
+  if (token.isLoggedIn()) {
     return true;
   } else {
-
-    router.navigate(['sing-in']);
+    router.navigate(['']);
     return false;
   }
 };

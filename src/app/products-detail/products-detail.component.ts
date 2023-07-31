@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../product.service';
 import { Location } from '@angular/common';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-products-detail',
@@ -14,7 +15,8 @@ export class ProductsDetailComponent implements OnInit {
   constructor(
     protected route: ActivatedRoute,
     private productService: ProductService,
-    private location: Location
+    private location: Location,
+    private titleService:Title
   ) {}
 
   ngOnInit(): void {
@@ -23,8 +25,10 @@ export class ProductsDetailComponent implements OnInit {
 
   getProducts():void{
    const id = Number(this.route.snapshot.paramMap.get('id'))   
-   this.productService.getProductsId(id).subscribe((productsId)=>{
+   this.productService.getProductsId(id).subscribe((productsId:any)=>{
+    this.titleService.setTitle(productsId.title);
     this.paramDetail = productsId
+
    })
   }
 

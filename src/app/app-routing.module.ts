@@ -7,37 +7,37 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    loadChildren: async () => {
-      return (await import('./home-page/home-page.module')).HomePageModule;
-    },
+    loadChildren: () =>
+      import('./home-page/home-page.module').then((m) => m.HomePageModule),
   },
   {
     path: 'catalog',
-    loadChildren: async () => {
-      return (await import('./products-form/products-form.module'))
-        .ProductFormModule;
-    },
+    loadChildren: () =>
+      import('./products-form/products-form.module').then(
+        (m) => m.ProductFormModule
+      ),
   },
   {
     path: 'auth',
-    loadChildren: async () => {
-      return (await import('./auth-page/auth-page.module')).AuthPageModule;
-    },
+    loadChildren: () =>
+      import('./auth-page/auth-page.module').then((m) => m.AuthPageModule),
   },
   {
     path: 'profile',
-    loadChildren: async () => {
-      return (await import('./personal-area/personal-area.module'))
-        .PersonalAreaModule;
-    },
-    canActivate: [authGuard],
+    loadChildren: () =>
+      import('./personal-area/personal-area.module').then(
+        (m) => m.PersonalAreaModule
+      ),
+      canActivate: [authGuard],
   },
   {
     path: 'admin',
-    loadChildren: async () => {
-      return (await import('./administration-page/administration-page.module'))
-        .AdministrationPageModule;
-    },
+    loadChildren: () =>
+      import('./administration-page/administration-page.module').then(
+        (m) => m.AdministrationPageModule
+      ),
+    canActivate: [authGuard],
+
   },
   {
     path: '**',
