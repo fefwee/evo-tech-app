@@ -12,20 +12,18 @@ import { NgxsResetPluginModule } from 'ngxs-reset-plugin';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     SharedModule,
     AppRoutingModule,
     BrowserModule,
     HttpClientModule,
-    NgxsModule.forRoot([ UsersState]),
+    NgxsModule.forRoot([UsersState]),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     ReactiveFormsModule,
     FormsModule,
-    NgxsModule.forRoot([UsersState]),NgxsResetPluginModule.forRoot()
-    
+    NgxsModule.forRoot([UsersState]),
+    NgxsResetPluginModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

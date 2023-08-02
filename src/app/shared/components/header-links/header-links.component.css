@@ -4,8 +4,8 @@
 .navigation a {
   margin-right: 20px;
 }
- a {
-  color: #6B7280;
+a {
+  color: #6b7280;
 }
 .column {
   display: flex;
@@ -15,7 +15,7 @@
   padding: 16px 0;
 }
 .active {
-  color:black;
+  color: black;
 }
 @media (min-width: 320px) and (max-width: 550px) {
   .navigation nav a {

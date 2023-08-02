@@ -4,7 +4,7 @@ import { AuthService } from './services/auth.service';
 
 export const authGuard: CanActivateFn = async (route, state): Promise<any> => {
   const router = inject(Router);
-  const token = inject(AuthService)
+  const token = inject(AuthService);
   if (token.isLoggedIn()) {
     return true;
   } else {

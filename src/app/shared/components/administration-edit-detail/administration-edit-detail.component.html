@@ -1,52 +1,80 @@
 <h3 class="title">{{ title }}</h3>
 <div class="general_container">
-<div class="bacground_container">
-<div *ngIf = "detailProduct"    class="form_container">
-  <div class="title_product">{{ detailProduct.title }}</div>
-  <div >
-    <form [formGroup]="form">
-      <div class="box_form">
-      <div class="top">
-        <div class="box_item">
-          <span>Название товара</span>
-          <input type="text" value={{detailProduct.title}}  formControlName = 'title' />
-          <div
-          *ngIf="form.get('title')?.invalid && form.get('title')?.touched"
-          class="validation"
-        >
-          <small> Мин 5 символов </small>
-        </div>
-        </div>
-        <div class="box_item">
-          <span>Краткое описание</span>
-          <input type="text" value={{detailProduct.description}} formControlName = 'description'/>
-        </div>
+  <div class="bacground_container">
+    <div *ngIf="detailProduct" class="form_container">
+      <div class="title_product">{{ detailProduct.title }}</div>
+      <div>
+        <form [formGroup]="form">
+          <div class="box_form">
+            <div class="top">
+              <div class="box_item">
+                <span>Название товара</span>
+                <input
+                  type="text"
+                  value="{{ detailProduct.title }}"
+                  formControlName="title"
+                />
+                <div
+                  *ngIf="
+                    form.get('title')?.invalid && form.get('title')?.touched
+                  "
+                  class="validation"
+                >
+                  <small> Мин 5 символов </small>
+                </div>
+              </div>
+              <div class="box_item">
+                <span>Краткое описание</span>
+                <input
+                  type="text"
+                  value="{{ detailProduct.description }}"
+                  formControlName="description"
+                />
+              </div>
+            </div>
+            <div class="both">
+              <div class="box_item">
+                <span>Цена</span>
+                <input
+                  type="text"
+                  value="{{ detailProduct.price }}"
+                  formControlName="price"
+                />
+              </div>
+              <div class="box_item">
+                <span>Бренд</span>
+                <input
+                  type="text"
+                  value="{{ detailProduct.brand }}"
+                  formControlName="brand"
+                />
+              </div>
+              <div class="box_item">
+                <span>Рейтинг</span>
+                <input
+                  type="text"
+                  value="{{ detailProduct.rating }}"
+                  formControlName="rating"
+                />
+              </div>
+            </div>
+          </div>
+        </form>
       </div>
-      <div class="both">
-        <div class="box_item">
-          <span>Цена</span>
-          <input type="text" value={{detailProduct.price}} formControlName = 'price'/>
-        </div>
-        <div class="box_item">
-          <span>Бренд</span>
-          <input type="text" value={{detailProduct.brand}} formControlName = 'brand'/>
-        </div>
-        <div class="box_item">
-          <span>Рейтинг</span>
-          <input type="text" value={{detailProduct.rating}} formControlName = 'rating'/>
-        </div>
-      </div>  
- 
     </div>
-    </form>
+    <div class="btn_box">
+      <app-button
+        (btnClick)="goBack()"
+        btnClass="return_btn"
+        btnTitle="Закрыть"
+      ></app-button>
+      <app-button
+        (btnClick)="saveEditConfig(form.value)"
+        [btnTitle]="'Сохранить'"
+        [isDisabled]="!form.valid"
+      ></app-button>
+    </div>
   </div>
-</div>
-<div class="btn_box">
-  <app-button (btnClick)="goBack()" btnClass="return_btn" btnTitle="Закрыть" ></app-button>
-  <app-button (btnClick)="saveEditConfig(form.value)" [btnTitle]="'Сохранить'" [isDisabled]="!form.valid"></app-button>   
-  </div>
-</div>
-
 </div>
 
 <app-footer></app-footer>

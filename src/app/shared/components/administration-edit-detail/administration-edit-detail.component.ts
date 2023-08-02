@@ -20,11 +20,11 @@ export class AdministrationEditDetailComponent implements OnInit {
     private service: ProductService,
     private router: Router,
     private location: Location,
-    private titleService:Title
+    private titleService: Title
   ) {}
 
   ngOnInit(): void {
-    this.titleService.setTitle(this.title)
+    this.titleService.setTitle(this.title);
     this.productId = Number(this.route.snapshot.paramMap.get('id'));
     this.service.getProductsId(this.productId).subscribe((item: any) => {
       this.detailProduct = item;

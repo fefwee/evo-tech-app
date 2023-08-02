@@ -14,7 +14,6 @@ export class ProductService {
   }
 
   getProducts(limit?: number): Observable<StateProductsModel> {
-
     const url = limit ? `${this.domain}?limit=${limit}` : `${this.domain}`;
     return this.http.get<StateProductsModel>(url);
   }
@@ -23,7 +22,7 @@ export class ProductService {
     return this.http.get<StateProductsModel>(`${this.domain}${id}`);
   }
 
-  productUpdate(updateObj:any,id:number) : Observable<any>{
-    return this.http.put<any>(`${this.domain}${id}`,updateObj)
+  productUpdate(updateObj: any, id: number): Observable<any> {
+    return this.http.put<any>(`${this.domain}${id}`, updateObj);
   }
 }

@@ -12,7 +12,7 @@ import { UsersState } from '../states/auth-user.state';
 export class AuthService {
   private domainLogin: string | undefined;
   private domainUser: string | undefined;
-  constructor(private http: HttpClient,private store:Store) {
+  constructor(private http: HttpClient, private store: Store) {
     this.domainLogin = environment.domainLogin;
     this.domainUser = environment.domainUsers;
   }
@@ -24,7 +24,7 @@ export class AuthService {
     );
     return this.http.post<AuthUserModel>(`${this.domainLogin}`, data, {
       headers,
-    }); 
+    });
   }
 
   public getFullUser(id: any): Observable<any> {
@@ -42,13 +42,11 @@ export class AuthService {
     }
     return role;
   }
-  public isLoggedIn(){
-    let token = null
-    this.store.select(UsersState.getUserProfileSelector).subscribe((res)=>{
-     if(res) token = res.token
-    })
-     return token? true : false
-
+  public isLoggedIn() {
+    let token = null;
+    this.store.select(UsersState.getUserProfileSelector).subscribe((res) => {
+      if (res) token = res.token;
+    });
+    return token ? true : false;
   }
-  
 }

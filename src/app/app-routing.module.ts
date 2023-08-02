@@ -4,7 +4,7 @@ import { authGuard } from './auth.guard';
 import { PageErrorComponent } from './shared/components/page-error/page-error.component';
 
 const routes: Routes = [
- {
+  {
     path: '',
     loadChildren: () =>
       import('./pages/home-page/home-page.module').then(
@@ -14,7 +14,6 @@ const routes: Routes = [
 
   {
     path: 'catalog',
-    pathMatch:"full",
     loadChildren: () =>
       import('./pages/products-form/products-form.module').then(
         (m) => m.ProductFormModule

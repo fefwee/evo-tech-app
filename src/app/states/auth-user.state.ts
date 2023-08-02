@@ -13,12 +13,15 @@ export class AuthUserModelProfile {
 }
 @State<Partial<AuthUserModelProfile>>({
   name: 'userstate',
-  defaults: undefined
-
+  defaults: undefined,
 })
 @Injectable()
 export class UsersState {
-  constructor(private service: AuthService, private router: Router,private zone:NgZone) {}
+  constructor(
+    private service: AuthService,
+    private router: Router,
+    private zone: NgZone
+  ) {}
 
   @Selector()
   static getUserProfileSelector(state: AuthUserModelProfile) {
@@ -41,9 +44,9 @@ export class UsersState {
           token: res.token,
           role: role,
         });
-        this.zone.run(()=>{
+        this.zone.run(() => {
           this.router.navigate(['profile']);
-        })
+        });
       })
     );
   }

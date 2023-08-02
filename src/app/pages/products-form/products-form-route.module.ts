@@ -4,8 +4,8 @@ import { ProductsFormComponent } from './products-form.component';
 import { ProductsDetailComponent } from '../../shared/components/products-detail/products-detail.component';
 
 const routes: Routes = [
-  { path: '', component: ProductsFormComponent,},
-  { path: ':id', component: ProductsDetailComponent},
+  { path: '', component: ProductsFormComponent },
+  { path: ':id', component: ProductsDetailComponent },
 ];
 
 @NgModule({

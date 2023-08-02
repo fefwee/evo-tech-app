@@ -1,19 +1,21 @@
-<div class="card_grid_box" >
-    <div *ngFor="let item of productsArr ">
-        <a routerLink="{{item.id}}/">
-        <div class="card_box">
-                <div>
-                    <div class="card_img">
-                        <img class="bg_image" style="background-image: url({{item.thumbnail}})" alt="">
-                    </div>
-                    <h3>{{item.title}}</h3>
-                    <h3>{{item.price}} $</h3>
-                </div>
+<div class="card_grid_box">
+  <div *ngFor="let item of productsArr">
+    <a routerLink="{{ item.id }}/">
+      <div class="card_box">
+        <div>
+          <div class="card_img">
+            <img
+              class="bg_image"
+              style="background-image: url({{item.thumbnail}})"
+              alt=""
+            />
+          </div>
+          <h3>{{ item.title }}</h3>
+          <h3>{{ item.price }} $</h3>
         </div>
+      </div>
     </a>
-    </div>
+  </div>
 </div>
 
 <router-outlet></router-outlet>
-
-

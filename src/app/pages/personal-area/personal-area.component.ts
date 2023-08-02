@@ -1,17 +1,16 @@
 import { IUser } from '../../models/AuthUserModel';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Store } from '@ngxs/store';
 import { UsersState } from '../../states/auth-user.state';
 import { Title } from '@angular/platform-browser';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-personal-area',
   templateUrl: './personal-area.component.html',
   styleUrls: ['./personal-area.component.css'],
 })
-export class PersonalAreaComponent implements OnInit, OnDestroy {
+export class PersonalAreaComponent implements OnInit {
   public title = 'Личный кабинет';
   public isAdmin: boolean = false;
   public id = 0;
@@ -32,21 +31,19 @@ export class PersonalAreaComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.titleService.setTitle(this.title);
-    this.store
-      .select(UsersState.getUserProfileSelector)
-      .subscribe((res) => {
-        if(res){
-          this.id = res.userProfile.id;
-          if (res.role === 'Администратор') {
-            this.isAdmin = true;
-          }
+    this.store.select(UsersState.getUserProfileSelector).subscribe((res) => {
+      if (res) {
+        this.id = res.userProfile.id;
+        if (res.role === 'Администратор') {
+          this.isAdmin = true;
         }
-      });
+      }
+    });
     this.getFullUser();
   }
 
   public getFullUser() {
-  this.serviceGetFullUser.getFullUser(this.id).subscribe((res) => {
+    this.serviceGetFullUser.getFullUser(this.id).subscribe((res) => {
       this.userInfo = {
         age: res.age,
         ip: res.ip,
@@ -55,9 +52,5 @@ export class PersonalAreaComponent implements OnInit, OnDestroy {
         image: res.image,
       };
     });
-  }
-
-  ngOnDestroy(): void {
-
   }
 }

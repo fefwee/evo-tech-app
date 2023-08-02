@@ -9,22 +9,19 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./administration-catalog.component.css'],
 })
 export class AdministrationCatalogComponent {
+  public title = 'Администрирование - Товары';
 
+  public products: Iproduct[] = [];
 
-   public title = 'Администрирование - Товары';
-
-  public products:Iproduct[] = []
-
-  constructor(private service:ProductService,private titleService:Title) {}
+  constructor(private service: ProductService, private titleService: Title) {}
 
   ngOnInit(): void {
-    this.titleService.setTitle(this.title)
-    this.getProducts(50)
-   
+    this.titleService.setTitle(this.title);
+    this.getProducts(50);
   }
-  getProducts(limit:number):void {
-    this.service.getProducts(limit).subscribe((products)=> {
-      this.products = products.products})
+  getProducts(limit: number): void {
+    this.service.getProducts(limit).subscribe((products) => {
+      this.products = products.products;
+    });
   }
-
 }

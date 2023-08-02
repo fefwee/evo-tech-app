@@ -9,15 +9,16 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./products-form.component.css'],
 })
 export class ProductsFormComponent implements OnInit {
-  public title = 'Каталог товаров'
-  public products:Iproduct[] = []
-  constructor(private service:ProductService,private titleService:Title) {}
+  public title = 'Каталог товаров';
+  public products: Iproduct[] = [];
+  constructor(private service: ProductService, private titleService: Title) {}
   public ngOnInit(): void {
-    this.getProduct(50)
-    
+    this.getProduct(50);
   }
-  getProduct(limit:number):void{
-    this.titleService.setTitle(this.title)
-    this.service.getProducts(limit).subscribe((products)=> this.products = products.products)
+  getProduct(limit: number): void {
+    this.titleService.setTitle(this.title);
+    this.service
+      .getProducts(limit)
+      .subscribe((products) => (this.products = products.products));
   }
 }

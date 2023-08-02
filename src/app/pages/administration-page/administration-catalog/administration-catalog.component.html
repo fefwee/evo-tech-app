@@ -1,6 +1,6 @@
 <h3 class="title">{{ title }}</h3>
 
- <div class="table_responsive">
+<div class="table_responsive">
   <table>
     <tr>
       <th>Название товара</th>
@@ -13,8 +13,8 @@
       <td>{{ item.brand }}</td>
       <td>{{ item.price }}</td>
       <td>{{ item.rating }}</td>
-      <a class="edit" routerLink="{{item.id}}/">редактировать</a>
+      <td class="edit" routerLink="{{ item.id }}/">редактировать</td>
     </tr>
   </table>
-</div> 
- <app-footer></app-footer>
+</div>
+<app-footer></app-footer>

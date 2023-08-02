@@ -10,13 +10,13 @@ import { Title } from '@angular/platform-browser';
 })
 export class HomePageComponent implements OnInit {
   title = 'Основные товары';
-  public products:Iproduct[] = []
-  constructor(private service:ProductService,
-    private titleService:Title) {}
+  public products: Iproduct[] = [];
+  constructor(private service: ProductService, private titleService: Title) {}
 
   public ngOnInit(): void {
-    this.titleService.setTitle(this.title)
-    this.service.getProducts(10).subscribe((products)=>this.products = products.products)
+    this.titleService.setTitle(this.title);
+    this.service
+      .getProducts(10)
+      .subscribe((products) => (this.products = products.products));
   }
-  
 }

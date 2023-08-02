@@ -20,9 +20,8 @@ export class HeaderComponent implements OnInit {
       if (res) {
         this.login$ = res.login;
         this.role$ = res.role;
-      }
-      else{
-        this.login$ = false
+      } else {
+        this.login$ = false;
       }
     });
   }

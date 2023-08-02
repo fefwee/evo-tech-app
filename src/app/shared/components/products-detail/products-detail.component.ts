@@ -16,20 +16,21 @@ export class ProductsDetailComponent implements OnInit {
     protected route: ActivatedRoute,
     private productService: ProductService,
     private location: Location,
-    private titleService:Title
+    private titleService: Title
   ) {}
 
   ngOnInit(): void {
-    this.getProducts()
+    this.getProducts();
   }
 
-  getProducts():void{
-   const id = this.route.snapshot.paramMap.get('id')  
-   this.productService.getProductsId(Number(id)).subscribe((productsId:any)=>{
-    this.titleService.setTitle(productsId.title); 
-    this.paramDetail = productsId
-
-   })
+  getProducts(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.productService
+      .getProductsId(Number(id))
+      .subscribe((productsId: any) => {
+        this.titleService.setTitle(productsId.title);
+        this.paramDetail = productsId;
+      });
   }
 
   goBack(): void {

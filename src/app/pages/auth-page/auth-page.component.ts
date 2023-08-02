@@ -23,10 +23,14 @@ export class AuthPageComponent implements OnInit {
   public form!: FormGroup;
   public title: string = 'Вход в личный кабинет';
 
-  constructor(private store: Store, private router: Router,private titleService:Title) {}
+  constructor(
+    private store: Store,
+    private router: Router,
+    private titleService: Title
+  ) {}
 
   ngOnInit(): void {
-    this.titleService.setTitle(this.title)
+    this.titleService.setTitle(this.title);
     this.form = new FormGroup({
       username: new FormControl('', [
         Validators.minLength(5),
@@ -44,8 +48,7 @@ export class AuthPageComponent implements OnInit {
       JSON.stringify(data) === JSON.stringify(this.bayer) ||
       JSON.stringify(data) === JSON.stringify(this.admin)
     ) {
-      this.store.dispatch(new AuthUserAction(data));  
+      this.store.dispatch(new AuthUserAction(data));
     }
-    
   }
 }

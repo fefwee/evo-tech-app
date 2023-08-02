@@ -1,31 +1,31 @@
 <div class="header_box">
   <div class="logo">
     <div class="logo_box">
-    <img src="../../../../assets/Mark.svg" alt="" />
-    <h4>Tech</h4>
-  </div>
+      <img src="../../../../assets/Mark.svg" alt="" />
+      <h4>Tech</h4>
+    </div>
   </div>
   <div class="header_links">
     <app-header-links></app-header-links>
   </div>
   <div class="c">
-  <div class="btn_auth second" *ngIf="!login$">
-    <a routerLink="auth">
-    <app-button [btnTitle]="'Войти'"></app-button>
-    </a>
+    <div class="btn_auth second" *ngIf="!login$">
+      <a routerLink="auth">
+        <app-button [btnTitle]="'Войти'"></app-button>
+      </a>
+    </div>
+    <div class="btn_auth login_box_btn" *ngIf="login$">
+      <div>
+        <h3 routerLink="profile">{{ login$ }}</h3>
+        <p>{{ role$ }}</p>
+      </div>
+      <div (click)="toggleCloseBtn()" class="logout">
+        <img src="../../../../assets/downarrow_121316.svg" alt="" />
+        <div class="logout_block" *ngIf="show">
+          <img src="../../../../assets/logout_90894.svg" alt="" />
+          <span class="logout" (click)="logOut()">Выйти</span>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="btn_auth login_box_btn" *ngIf="login$">
-    <div>
-      <h3 routerLink="profile">{{ login$ }}</h3>
-    <p>{{ role$ }}</p>
-    </div>
-    <div (click)="toggleCloseBtn()" class="logout" >
-    <img src="../../../../assets/downarrow_121316.svg" alt="">
-    <div class="logout_block" *ngIf="show">
-    <img src="../../../../assets/logout_90894.svg" alt="">
-    <span class="logout"  (click)="logOut()">Выйти</span>
-    </div>
-    </div>
-  </div>
-</div>
 </div>
