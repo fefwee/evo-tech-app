@@ -5,13 +5,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgxsModule } from '@ngxs/store';
-import { ProductService } from './product.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AuthService } from './auth.service';
 import { UsersState } from './states/auth-user.state';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
-import { SharedModule } from './shared/shared.module';
 import { NgxsResetPluginModule } from 'ngxs-reset-plugin';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -29,7 +27,7 @@ import { NgxsResetPluginModule } from 'ngxs-reset-plugin';
     NgxsModule.forRoot([UsersState]),NgxsResetPluginModule.forRoot()
     
   ],
-  providers: [ProductService, AuthService],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

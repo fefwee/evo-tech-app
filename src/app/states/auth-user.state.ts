@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { State, Selector, Action, StateContext } from '@ngxs/store';
 import { tap } from 'rxjs/operators';
-import { AuthService } from '../auth.service';
-import { AuthUserAction } from '../actions/auth.action';
+import { AuthService } from '../services/auth.service';
+import { AuthUserAction } from './actions/auth.action';
 import { Router } from '@angular/router';
 
 export class AuthUserModelProfile {
@@ -11,18 +11,14 @@ export class AuthUserModelProfile {
   token!: string;
   role!: string;
 }
-@State<AuthUserModelProfile>({
+@State<Partial<AuthUserModelProfile>>({
   name: 'userstate',
-  defaults: {
-    userProfile: null,
-    login: '',
-    token: '',
-    role: '',
-  },
+  defaults: undefined
+
 })
 @Injectable()
 export class UsersState {
-  constructor(private service: AuthService, private router: Router) {}
+  constructor(private service: AuthService, private router: Router,private zone:NgZone) {}
 
   @Selector()
   static getUserProfileSelector(state: AuthUserModelProfile) {
@@ -45,7 +41,9 @@ export class UsersState {
           token: res.token,
           role: role,
         });
-        this.router.navigate(['profile']);
+        this.zone.run(()=>{
+          this.router.navigate(['profile']);
+        })
       })
     );
   }
