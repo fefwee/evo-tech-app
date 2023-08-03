@@ -18,7 +18,7 @@ export class ProductService {
     return this.http.get<StateProductsModel>(url);
   }
 
-  getProductsId(id: number): Observable<StateProductsModel> {
+  getProductsId(id:any): Observable<StateProductsModel> {
     return this.http.get<StateProductsModel>(`${this.domain}${id}`);
   }
 

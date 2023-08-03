@@ -5,6 +5,7 @@ import { HomePageComponent } from './home-page.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
+  {path:':id',component:ProductsDetailComponent}
 ];
 
 @NgModule({

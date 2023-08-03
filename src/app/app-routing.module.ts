@@ -5,13 +5,12 @@ import { PageErrorComponent } from './shared/components/page-error/page-error.co
 
 const routes: Routes = [
   {
-    path: '',
+    path: ' ',
     loadChildren: () =>
       import('./pages/home-page/home-page.module').then(
         (m) => m.HomePageModule
       ),
   },
-
   {
     path: 'catalog',
     loadChildren: () =>
