@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Iproduct } from '../../../models/ProductGetModel';
+import {  Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -9,7 +10,11 @@ import { Iproduct } from '../../../models/ProductGetModel';
 export class ProductsComponent implements OnInit {
   @Input() productsArr!: any;
 
-  constructor() {}
+  constructor(protected router:Router) {}
 
+  public navigateToDetail(id:any){
+    
+    this.router.navigateByUrl(`catalog/${id}`)
+  }
   ngOnInit(): void {}
 }
