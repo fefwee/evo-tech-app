@@ -4,9 +4,10 @@ import { tap } from 'rxjs/operators';
 import { AuthService } from '../services/auth.service';
 import { AuthUserAction } from './actions/auth.action';
 import { Router } from '@angular/router';
+import { AuthUserModel } from '../models/AuthUserModel';
 
 export class AuthUserModelProfile {
-  userProfile: any;
+  userProfile!: AuthUserModel;
   login!: string;
   token!: string;
   role!: string;

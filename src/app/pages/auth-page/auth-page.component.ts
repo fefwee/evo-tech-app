@@ -2,8 +2,8 @@ import { Store } from '@ngxs/store';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthUserAction } from '../../states/actions/auth.action';
-import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
+import { AuthParams } from 'src/app/models/AuthUserModel';
 
 @Component({
   selector: 'app-auth-page',
@@ -11,11 +11,12 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./auth-page.component.css'],
 })
 export class AuthPageComponent implements OnInit {
-  private bayer = {
+
+  private bayer: AuthParams = {
     username: 'atuny0',
     password: '9uQFF1Lh',
   };
-  private admin = {
+  private admin: AuthParams = {
     username: 'hbingley1',
     password: 'CQutx25i8r',
   };
@@ -23,11 +24,7 @@ export class AuthPageComponent implements OnInit {
   public form!: FormGroup;
   public title: string = 'Вход в личный кабинет';
 
-  constructor(
-    private store: Store,
-    private router: Router,
-    private titleService: Title
-  ) {}
+  constructor(private store: Store, private titleService: Title) {}
 
   ngOnInit(): void {
     this.titleService.setTitle(this.title);
@@ -43,7 +40,8 @@ export class AuthPageComponent implements OnInit {
     });
   }
 
-  login(data: any) {
+  login(data: AuthParams) {
+    
     if (
       JSON.stringify(data) === JSON.stringify(this.bayer) ||
       JSON.stringify(data) === JSON.stringify(this.admin)

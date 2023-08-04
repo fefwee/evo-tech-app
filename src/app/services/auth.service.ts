@@ -2,7 +2,7 @@ import { environment } from '../../environments/environment.development';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AuthUserModel } from '../models/AuthUserModel';
+import { AuthParams, AuthUserModel } from '../models/AuthUserModel';
 import { Store } from '@ngxs/store';
 import { UsersState } from '../states/auth-user.state';
 
@@ -17,7 +17,7 @@ export class AuthService {
     this.domainUser = environment.domainUsers;
   }
 
-  public login(data: any): Observable<any> {
+  public login(data: AuthParams): Observable<AuthUserModel> {
     const headers = new HttpHeaders().set(
       'Content-Type',
       'application/json; charset=utf-8'
@@ -27,10 +27,7 @@ export class AuthService {
     });
   }
 
-  public getFullUser(id: any): Observable<any> {
-    const headers = new HttpHeaders()
-      .set('Content-Type', 'application/json; charset=utf-8')
-      .set('Authorization', `Bearer ${localStorage.getItem('token')}`);
+  public getFullUser(id: number): Observable<any> {
     return this.http.get(`${this.domainUser}${id}`);
   }
 

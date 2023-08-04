@@ -8,11 +8,11 @@ import {  Router } from '@angular/router';
   styleUrls: ['./products.component.css'],
 })
 export class ProductsComponent implements OnInit {
-  @Input() productsArr!: any;
+  @Input() productsArr!:Iproduct[];
 
   constructor(protected router:Router) {}
 
-  public navigateToDetail(id:any){
+  public navigateToDetail(id:number){
     
     this.router.navigateByUrl(`catalog/${id}`)
   }

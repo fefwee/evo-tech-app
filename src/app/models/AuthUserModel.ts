@@ -10,7 +10,7 @@ export interface AuthUserModel {
 }
 
 export interface AuthParams {
-  userName: string;
+  username: string;
   password: any;
 }
 export interface IUser {

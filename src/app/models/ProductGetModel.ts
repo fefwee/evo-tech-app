@@ -7,7 +7,7 @@ export interface ProductGet {
   title: string;
   description: string;
   price: number;
-  discountPercentage: number;
+  discountPercentage: number;   
   rating: number;
   stock: number;
   brand: string;
@@ -33,4 +33,11 @@ export interface StateProductsModel {
   total: number;
   skip: number;
   limit: number;
+}
+export interface IUpdateProductDetail {
+  brand:string
+  description: string;
+  price: number;
+  rating: number;
+  title: string;
 }

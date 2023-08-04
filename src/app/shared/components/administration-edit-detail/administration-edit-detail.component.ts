@@ -4,6 +4,7 @@ import { ProductService } from '../../../services/product.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
 import { Title } from '@angular/platform-browser';
+import { IUpdateProductDetail, Iproduct } from 'src/app/models/ProductGetModel';
 @Component({
   selector: 'app-administration-edit-detail',
   templateUrl: './administration-edit-detail.component.html',
@@ -11,7 +12,7 @@ import { Title } from '@angular/platform-browser';
 })
 export class AdministrationEditDetailComponent implements OnInit {
   private productId!: number;
-  public detailProduct: any;
+  public detailProduct!:Iproduct;
   public title = 'Администрирование - Редактирование товара';
   public form!: FormGroup;
 
@@ -26,7 +27,7 @@ export class AdministrationEditDetailComponent implements OnInit {
   ngOnInit(): void {
     this.titleService.setTitle(this.title);
     this.productId = Number(this.route.snapshot.paramMap.get('id'));
-    this.service.getProductsId(this.productId).subscribe((item: any) => {
+    this.service.getProductsId(this.productId).subscribe((item: Iproduct) => {
       this.detailProduct = item;
     });
     this.form = new FormGroup({
@@ -53,10 +54,8 @@ export class AdministrationEditDetailComponent implements OnInit {
     });
   }
 
-  public saveEditConfig(data: any) {
-    this.service.productUpdate(data, this.productId).subscribe((res) => {
-      console.log(res);
-    });
+  public saveEditConfig(data: IUpdateProductDetail) {
+    this.service.productUpdate(data, this.productId).subscribe((res) => {});
     this.router.navigate(['admin/items']);
   }
   goBack(): void {

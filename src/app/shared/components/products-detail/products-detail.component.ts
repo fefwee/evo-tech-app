@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Title } from '@angular/platform-browser';
+import { Iproduct } from 'src/app/models/ProductGetModel';
 
 @Component({
   selector: 'app-products-detail',
@@ -10,7 +11,7 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./products-detail.component.css'],
 })
 export class ProductsDetailComponent implements OnInit {
-  public paramDetail!: any;
+  public paramDetail!:Iproduct;
 
   constructor(
     protected route: ActivatedRoute,
@@ -27,7 +28,7 @@ export class ProductsDetailComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     this.productService
       .getProductsId(Number(id))
-      .subscribe((productsId: any) => {
+      .subscribe((productsId:Iproduct) => {
         this.titleService.setTitle(productsId.title);
         this.paramDetail = productsId;
       });

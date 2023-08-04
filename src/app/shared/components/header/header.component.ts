@@ -10,15 +10,16 @@ import { StateClear } from 'ngxs-reset-plugin';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  public login$!: any;
+  public login$!: string | boolean;
   public authorization!: boolean;
-  public role$!: any;
+  public role$!: string;
   public show = false;
 
   constructor(private store: Store, private router: Router) {
     store.select(UsersState.getUserProfileSelector).subscribe((res) => {
       if (res) {
         this.login$ = res.login;
+
         this.role$ = res.role;
       } else {
         this.login$ = false;

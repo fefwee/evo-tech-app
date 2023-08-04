@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { StateProductsModel } from '../models/ProductGetModel';
+import { Iproduct, StateProductsModel } from '../models/ProductGetModel';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
 
@@ -18,11 +18,11 @@ export class ProductService {
     return this.http.get<StateProductsModel>(url);
   }
 
-  getProductsId(id:any): Observable<StateProductsModel> {
-    return this.http.get<StateProductsModel>(`${this.domain}${id}`);
+  getProductsId(id:number): Observable<Iproduct> {
+    return this.http.get<Iproduct>(`${this.domain}${id}`);
   }
 
-  productUpdate(updateObj: any, id: number): Observable<any> {
+  productUpdate(updateObj: any, id: number): Observable<Iproduct> {
     return this.http.put<any>(`${this.domain}${id}`, updateObj);
   }
 }
